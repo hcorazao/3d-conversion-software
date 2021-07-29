@@ -1,0 +1,19 @@
+<div class="wrapper">
+  <div class="title">{{ 'userMenu.profileDetails.deleteProfile.modal.title' | translate }}</div>
+  <div class="description">
+    {{ 'userMenu.profileDetails.deleteProfile.modal.description' | translate }}
+  </div>
+  <div class="field">
+    <div class="field-title">
+      {{ 'userMenu.profileDetails.deleteProfile.modal.passwordField.title' | translate }}
+    </div>
+    <input class="password-field-input" type="password" />
+  </div>
+  <div class="delete-account-button-wrapper">
+    <app-button
+      [type]="ButtonType.danger"
+      [title]="'userMenu.profileDetails.deleteProfile.modal.confirmButton' | translate"
+      (clicked)="deleteAccount()"
+    ></app-button>
+  </div>
+</div>

@@ -1,0 +1,210 @@
+@import 'variables';
+
+.step-header {
+  margin: 0 16px 0 28px;
+  padding-left: 24px;
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 700;
+  color: $neutral-darkest-transparent3;
+  position: relative;
+  border-left: 1px solid $neutral-medium-tranpsarent5;
+  padding-bottom: 6px;
+  .title {
+    height: 20px;
+    display: flex;
+    align-items: center;
+  }
+  &.last {
+    padding-bottom: 0;
+  }
+}
+.step-badge-wrapper {
+  background-color: $panel-background;
+  padding: 2px 0;
+  position: absolute;
+  left: -8px;
+}
+.step-badge {
+  width: 16px;
+  height: 16px;
+  border-radius: 5px;
+  background-color: $neutral-medium;
+  z-index: 1;
+  color: $white;
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 1.25s ease-in-out;
+
+  mat-icon {
+    width: 14px;
+    height: 14px;
+    font-size: 14px;
+  }
+}
+.step-header.clickable {
+  .step-badge-wrapper {
+    .step-badge {
+      transition: width 0.25s ease-in-out, height 0.25s ease-in-out;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    .title {
+      color: $neutral-darkest;
+    }
+    .step-badge-wrapper {
+      left: -10px;
+      .step-badge {
+        width: 20px;
+        height: 20px;
+        background-color: $primary;
+        color: $white;
+      }
+    }
+  }
+}
+
+.step-header.current {
+  padding-bottom: 14px;
+  border-left: 1px dotted $primary;
+  .title {
+    height: 24px;
+    color: $neutral-darkest;
+  }
+  .step-badge-wrapper {
+    left: -10px;
+    .step-badge {
+      width: 20px;
+      height: 20px;
+      background-color: $primary;
+      color: $neutral-darkest;
+      transition: all 1.25s ease-in-out;
+    }
+  }
+}
+.substep-wrapper {
+  overflow-y: hidden;
+  .substep {
+    overflow-x: visible;
+    .substep-line-with-buttons {
+      margin: 0 16px 0 28px;
+      position: relative;
+      border-left: 1px solid $neutral-medium-tranpsarent5;
+      padding-left: 24px;
+      .substep-line {
+        display: flex;
+        align-items: center;
+        padding-bottom: 8px;
+        .substep-badge-wrapper {
+          position: absolute;
+          left: -6px;
+          padding: 2px 0;
+          background-color: $panel-background;
+          .substep-badge {
+            width: 11px;
+            height: 11px;
+            border-radius: 5px;
+            background-color: $neutral-medium;
+          }
+        }
+        .substep-title {
+          color: $neutral-darkest-transparent3;
+          font-size: 14px;
+          line-height: 18px;
+          font-weight: 500;
+        }
+        &.clickable:hover {
+          cursor: pointer;
+          .substep-title {
+            color: $black;
+          }
+        }
+      }
+      .buttons {
+        display: flex;
+        padding-bottom: 12px;
+        overflow-y: hidden;
+        app-button {
+          margin-right: 7px;
+        }
+      }
+    }
+
+    &.lower {
+      .substep-line-with-buttons {
+        padding-top: 8px;
+        margin-top: 2px;
+      }
+    }
+    &.current {
+      .substep-line-with-buttons {
+        border-left: 1px dotted $primary;
+        .substep-line {
+          .substep-badge-wrapper {
+            .substep-badge {
+              background-color: $primary;
+            }
+          }
+          .substep-title {
+            color: $black;
+          }
+        }
+      }
+    }
+    &.previous {
+      .substep-line-with-buttons {
+        border-left: 1px dotted $primary;
+        .substep-line {
+          .substep-badge-wrapper {
+            .substep-badge {
+              background-color: $primary;
+            }
+          }
+        }
+      }
+    }
+    &.last:not(.current) {
+      .substep-line-with-buttons {
+        .substep-line {
+          padding-bottom: 0;
+        }
+      }
+    }
+    &.last.current {
+      .substep-line-with-buttons {
+        border-color: $panel-background;
+      }
+    }
+  }
+}
+.substep-tip {
+  position: relative;
+  margin: 4px 0 0;
+  padding: 13px 16px 11px;
+  background-color: $primary-light;
+  color: $neutral-darkest;
+  font-size: 11px;
+  line-height: 15.68px;
+  font-weight: 500;
+  .substep-tip-arrow {
+    width: 11px;
+    height: 11px;
+    transform: rotate(-45deg);
+    background-color: $primary-light;
+    position: absolute;
+    left: 23px;
+    top: -5px;
+  }
+}
+.substeps-footer {
+  border-left: 1px solid $neutral-medium-tranpsarent5;
+  margin: 2px 16px 0 28px;
+  padding-left: 24px;
+  height: 15px;
+}

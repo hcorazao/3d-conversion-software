@@ -1,0 +1,20 @@
+<div
+  *ngIf="dentalCase"
+  class="wrapper"
+  data-html="true"
+  (click)="handleDentalCaseSelected()"
+  [class.disabled]="!dentalCase.availableInImportFolder || dentalCase.errorMessage"
+  [matTooltip]="tooltip"
+>
+  <div class="information ml-3">
+    <div class="name">{{ dentalCase.caseName }}</div>
+    <div class="additional-information">
+      <div *ngIf="getNumberFromFormattedElapsedTime(dentalCase.caseDate)" class="case-date-time">
+        {{ 'sidebar.dentalCase.created' | translate }} {{ getNumberFromFormattedElapsedTime(dentalCase.caseDate) }}
+        {{ getTextSuffixTranslationKeyFromFormattedElapsedTime(dentalCase.caseDate) | translate }}
+      </div>
+      <div class="separator">•</div>
+      <div class="completion-status">{{ getTranslationKeyForCaseCompletionStatus(dentalCase.completionStatus) | translate }}</div>
+    </div>
+  </div>
+</div>

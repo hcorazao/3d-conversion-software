@@ -1,0 +1,51 @@
+<div class="wrapper">
+  <div class="header" [class]="{ minimized: minimized$ | async }">
+    <div>
+      {{ 'notification.upload.titlePrefix' | translate }}
+      {{ (caseFileUploads$ | async).length }}
+      {{
+        ((caseFileUploads$ | async).length === 1 ? 'notification.upload.titleSuffixSingular' : 'notification.upload.titleSuffixPlural')
+          | translate
+      }}
+    </div>
+    <div class="header-buttons">
+      <button (click)="toggleMinimization()">
+        <mat-icon *ngIf="minimized$ | async">add</mat-icon>
+        <mat-icon *ngIf="(minimized$ | async) === false">remove</mat-icon>
+      </button>
+      <app-auto-closing-button
+        [light]="true"
+        [autoClosingTime]="5"
+        [autoClosing]="autoClosing"
+        (closed)="closeNotification()"
+      ></app-auto-closing-button>
+    </div>
+  </div>
+  <div [@fadeInOut]="(minimized$ | async) === false ? 'expanded' : 'collapsed'" class="body">
+    <div class="body-content-wrapper">
+      <div *ngFor="let caseFileUpload of caseFileUploads$ | async" class="upload-item">
+        <img class="upload-item-image" src="assets/images/svg/upload-notification/upload-file.svg" />
+        <div class="descriptions">
+          <div class="title">{{ caseFileUpload.titleTranslationString | translate }}</div>
+          <div class="file-name" [matTooltip]="caseFileUpload.fileName">{{ caseFileUpload.fileName }}</div>
+        </div>
+        <div class="status-image-wrapper">
+          <img
+            *ngIf="caseFileUpload.status === CaseFileUploadStatus.FINISHED_WITH_SUCCESS"
+            class="success"
+            src="assets/images/svg/upload-notification/upload-success.svg"
+          />
+          <img
+            *ngIf="caseFileUpload.status === CaseFileUploadStatus.FINISHED_WITH_ERROR"
+            class="error"
+            src="assets/images/svg/upload-notification/upload-error.svg"
+          />
+          <img
+            *ngIf="caseFileUpload.status === CaseFileUploadStatus.IN_PROGRESS"
+            src="assets/images/svg/upload-notification/upload-pending.svg"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

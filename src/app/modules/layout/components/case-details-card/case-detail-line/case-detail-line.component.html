@@ -1,0 +1,6 @@
+<div class="case-detail">
+  <div class="case-detail-label">{{ label }}</div>
+  <div class="case-detail-data" #tooltip="matTooltip" [matTooltip]="value || '---'">
+    {{ value || '---' }}
+  </div>
+</div>

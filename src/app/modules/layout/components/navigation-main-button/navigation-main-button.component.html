@@ -1,0 +1,22 @@
+<button
+  (click)="clicked.emit()"
+  [class]="{
+    activated: activated,
+    'auto-width': !!text,
+    'flat-right-edge': flatRightEdge,
+    'flat-left-edge': flatLeftEdge,
+    'no-shadow': noShadow,
+    dark: dark,
+    'space-between': !!text && !!imageSource,
+    avatar: avatar,
+    'resize-on-hover': resizeOnHover,
+    'is-in-userbar': isInUserbar
+  }"
+>
+  <img class="image-without-hover" *ngIf="imageSource" [src]="activated ? activatedImageSource : imageSource" />
+  <img class="image-with-hover" *ngIf="imageSource && !hoverImageSource" [src]="activated ? activatedImageSource : imageSource" />
+  <img class="image-with-hover" *ngIf="imageSource && hoverImageSource" [src]="activated ? activatedImageSource : hoverImageSource" />
+
+  <div *ngIf="!imageSource && gravatarText" class="gravatar">{{ gravatarText }}</div>
+  <div *ngIf="text">{{ text }}</div>
+</button>

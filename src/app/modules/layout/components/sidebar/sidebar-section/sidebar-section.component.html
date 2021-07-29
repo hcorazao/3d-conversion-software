@@ -1,0 +1,23 @@
+<div class="cases-header">
+  <span (click)="toggle.emit()">{{ sectionTranslationsPrefix + '.title' | translate }}</span>
+  <button (click)="toggle.emit()">
+    <mat-icon *ngIf="!expanded">add</mat-icon>
+    <mat-icon *ngIf="expanded">remove</mat-icon>
+  </button>
+</div>
+<div *ngIf="expanded && loading" class="loading-cases">
+  <span class="spinner-border spinner-border-sm mr-1"></span>{{ sectionTranslationsPrefix + '.loading' | translate }}
+</div>
+<div *ngIf="expanded && !loading && patientsWithCases" class="patients-with-cases" [class]="{ expanded: expanded }">
+  <div *ngFor="let patientWithCases of patientsWithCases" class="patientWithCases">
+    <app-patient-sidebar-section
+      [patient]="patientWithCases.patient"
+      [cases]="patientWithCases.dentalCaseSimples"
+      (dentalCaseSelected)="dentalCaseSelected.emit($event)"
+    >
+    </app-patient-sidebar-section>
+  </div>
+  <div *ngIf="patientsWithCases.length === 0" class="no-cases">
+    {{ sectionTranslationsPrefix + '.none' | translate }}
+  </div>
+</div>

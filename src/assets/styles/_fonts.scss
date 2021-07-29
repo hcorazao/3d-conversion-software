@@ -1,0 +1,53 @@
+@import '~@angular/material/theming';
+
+$steradian-regular-woff-font-path: '/assets/fonts/steradian-regular-webfont.woff';
+$steradian-regular-woff2-font-path: '/assets/fonts/steradian-regular-webfont.woff2';
+$steradian-medium-woff-font-path: '/assets/fonts/steradian-medium-webfont.woff';
+$steradian-medium-woff2-font-path: '/assets/fonts/steradian-medium-webfont.woff2';
+$steradian-bold-woff-font-path: '/assets/fonts/steradian-bold-webfont.woff';
+$steradian-bold-woff2-font-path: '/assets/fonts/steradian-bold-webfont.woff2';
+
+$steradian-regular-italic-woff-font-path: '/assets/fonts/steradian-regular-italic-webfont.woff';
+$steradian-regular-italic-woff2-font-path: '/assets/fonts/steradian-regular-italic-webfont.woff2';
+$steradian-medium-italic-woff-font-path: '/assets/fonts/steradian-medium-italic-webfont.woff';
+$steradian-medium-italic-woff2-font-path: '/assets/fonts/steradian-medium-italic-webfont.woff2';
+
+$custom-typography: mat-typography-config(
+  $font-family: 'steradian',
+);
+@include mat-core($custom-typography);
+
+@font-face {
+  font-family: 'steradian';
+  src: url($steradian-regular-woff-font-path) format('woff'), url($steradian-regular-woff2-font-path) format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'steradian';
+  src: url($steradian-medium-woff-font-path) format('woff'), url($steradian-medium-woff2-font-path) format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'steradian';
+  src: url($steradian-bold-woff-font-path) format('woff'), url($steradian-bold-woff2-font-path) format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'steradian';
+  src: url($steradian-regular-italic-woff-font-path) format('woff'), url($steradian-regular-italic-woff2-font-path) format('woff2');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'steradian';
+  src: url($steradian-medium-italic-woff-font-path) format('woff'), url($steradian-medium-italic-woff2-font-path) format('woff2');
+  font-weight: 500;
+  font-style: italic;
+}

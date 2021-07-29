@@ -1,0 +1,8 @@
+<div class="wrapper">
+  <div class="title">{{ notification.titleTranslationKey | translate }}</div>
+  <div class="description">{{ notification.descriptionTranslationKey | translate }}</div>
+  <div class="buttons">
+    <button (click)="takeAction()">{{ notification.actionButtonTitleTranslationKey | translate }}</button>
+    <button (click)="dismiss()">{{ 'notification.action.dismissButton.title' | translate }}</button>
+  </div>
+</div>

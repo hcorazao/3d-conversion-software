@@ -1,0 +1,20 @@
+<button
+  type="button"
+  [disabled]="disabled"
+  [ngClass]="{
+    disabled: disabled,
+    primary: type === ButtonType.primary,
+    secondary: type === ButtonType.secondary,
+    neutral: type === ButtonType.neutral,
+    success: type === ButtonType.success,
+    danger: type === ButtonType.danger,
+    light: light,
+    wide: wide,
+    small: small
+  }"
+  class="{{ customClass }}"
+  (click)="clicked.emit()"
+>
+  <mat-icon *ngIf="matIcon">{{ matIcon }}</mat-icon>
+  {{ title }}
+</button>

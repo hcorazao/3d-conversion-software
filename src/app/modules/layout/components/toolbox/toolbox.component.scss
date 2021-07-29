@@ -1,0 +1,66 @@
+@import 'variables';
+
+.wrapper {
+  background-color: $panel-background;
+  box-shadow: $panel-shadow;
+  cursor: grabbing;
+  user-select: none;
+  z-index: $objects-toolbox-z-index;
+  border-radius: 5px;
+  .header {
+    border-bottom: 1px solid $neutral-darkest-transparent1;
+    padding: 7px 16px;
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 700;
+    color: $neutral-darkest;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: grab;
+    &.ng-dragging {
+      cursor: grabbing;
+    }
+    &.minimized {
+      border: none;
+    }
+    .top-right-button {
+      height: 22px;
+      width: 22px;
+      background: none;
+      border: none;
+      font-size: 11px;
+      color: $neutral-darkest-transparent3;
+      padding: 0;
+      margin: 0;
+      transition: all $button-hover-transition;
+      &:hover {
+        background-color: $neutral-darkest-transparent05;
+        border-radius: 50%;
+      }
+      .mat-icon {
+        height: 22px;
+        width: 22px;
+        font-size: 22px;
+      }
+      img {
+        height: 16px;
+        width: 16px;
+      }
+    }
+    &.big {
+      padding: 13px 16px 12px;
+    }
+  }
+  .body {
+    overflow: hidden;
+    .body-content-wrapper {
+      padding: 8px 16px;
+      overflow: hidden;
+      cursor: default;
+      &.no-padding {
+        padding: 0;
+      }
+    }
+  }
+}

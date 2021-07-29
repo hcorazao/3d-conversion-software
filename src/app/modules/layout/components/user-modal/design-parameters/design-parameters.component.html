@@ -1,0 +1,129 @@
+<div class="wrapper">
+  <!-- not needed now (ulfwil)
+  <div class="field">
+    <div class="field-title">
+      {{ 'userMenu.designParameters.occlusalContactStrength.title' | translate }}
+    </div>
+    <div class="field-subtitle">
+      {{ 'userMenu.designParameters.occlusalContactStrength.subtitle' | translate }}
+    </div>
+    <div class="options">
+      <button
+        *ngFor="let option of occlusalContactOptions"
+        class="option-button"
+        [class]="{ selected: designParameters.occlusalContactStrength === option.strength }"
+        (click)="chooseOcclusalContactStrength(option.strength)"
+      >
+        {{ option.translationPrefix + 'buttonTitle' | translate }}
+      </button>
+    </div>
+    <div class="option-description">
+      <ng-container *ngFor="let option of occlusalContactOptions">
+        <ng-container *ngIf="designParameters.occlusalContactStrength === option.strength">
+          {{ option.translationPrefix + 'description' | translate }}
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+  -->
+  <div class="field">
+    <div class="field-title">
+      {{ 'userMenu.designParameters.proximalContactStrength.title' | translate }}
+    </div>
+    <div class="field-subtitle">
+      {{ 'userMenu.designParameters.proximalContactStrength.subtitle' | translate }}
+    </div>
+    <div class="options">
+      <button
+        *ngFor="let option of proximalContactOptions"
+        class="option-button"
+        [class]="{ selected: designParameters.proximalContactStrength === option.strength }"
+        (click)="chooseProximalContactStrength(option.strength)"
+      >
+        {{ option.translationPrefix + 'buttonTitle' | translate }}
+      </button>
+    </div>
+    <div class="option-description">
+      <ng-container *ngFor="let option of proximalContactOptions">
+        <ng-container *ngIf="designParameters.proximalContactStrength === option.strength">
+          {{ option.translationPrefix + 'description' | translate }}
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+  <div class="separator"></div>
+  <div class="field">
+    <div class="field-title">
+      {{ 'userMenu.designParameters.occlusalMinimalThickness.title' | translate }}
+    </div>
+    <div class="field-subtitle">
+      {{ 'userMenu.designParameters.occlusalMinimalThickness.subtitle' | translate }}
+    </div>
+    <div class="slider-with-preview">
+      <div class="slider">
+        <mat-slider
+          [min]="0"
+          [max]="2000"
+          [step]="25"
+          [value]="designParameters.occlusalMinimalThickness"
+          [color]="'accent'"
+          (change)="occlusalMinimalThicknessChanged($event)"
+          (input)="occlusalMinimalThicknessChanged($event)"
+        ></mat-slider>
+      </div>
+      <div class="slider-preview">
+        {{ designParameters.occlusalMinimalThickness }}
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <div class="field-title">
+      {{ 'userMenu.designParameters.radialMinimalThickness.title' | translate }}
+    </div>
+    <div class="field-subtitle">
+      {{ 'userMenu.designParameters.radialMinimalThickness.subtitle' | translate }}
+    </div>
+    <div class="slider-with-preview">
+      <div class="slider">
+        <mat-slider
+          [min]="0"
+          [max]="2000"
+          [step]="25"
+          [value]="designParameters.radialMinimalThickness"
+          [color]="'accent'"
+          (change)="radialMinimalThicknessChanged($event)"
+          (input)="radialMinimalThicknessChanged($event)"
+        ></mat-slider>
+      </div>
+      <div class="slider-preview">
+        {{ designParameters.radialMinimalThickness }}
+      </div>
+    </div>
+  </div>
+  <div class="separator"></div>
+  <div class="field">
+    <div class="field-title">
+      {{ 'userMenu.designParameters.spacers.title' | translate }}
+    </div>
+    <div class="field-subtitle">
+      {{ 'userMenu.designParameters.spacers.subtitle' | translate }}
+    </div>
+    <div class="options">
+      <button
+        *ngFor="let option of spacerOptions"
+        class="option-button"
+        [class]="{ selected: designParameters.spacerStrength === option.strength }"
+        (click)="chooseSpacerStrength(option.strength)"
+      >
+        {{ option.translationPrefix + 'buttonTitle' | translate }}
+      </button>
+    </div>
+    <div class="option-description">
+      <ng-container *ngFor="let option of spacerOptions">
+        <ng-container *ngIf="designParameters.spacerStrength === option.strength">
+          {{ option.translationPrefix + 'description' | translate }}
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</div>

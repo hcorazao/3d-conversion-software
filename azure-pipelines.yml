@@ -1,0 +1,42 @@
+# Node.js with Angular
+# Build a Node.js project that uses Angular.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+  branches:
+    include:
+    - staging
+    - test
+  paths:
+    exclude:
+    - additional_doc/*
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: NodeTool@0 
+  inputs:
+    versionSpec: '12.x'
+- task: Npm@1
+  inputs:
+    command: 'install'
+- script: npx tslint -p .
+- task: Docker@2
+  inputs:
+    containerRegistry: 'cadray-shared-docker-registry'
+    repository: 'web-app'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: 'infrastructure'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: false
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: 'terraform-$(Build.BuildId)'

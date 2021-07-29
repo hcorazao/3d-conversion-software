@@ -1,0 +1,16 @@
+<div class="wrapper" ngDraggable [handle]="header" [style.width.px]="width" (endOffset)="endOffset($event)" [position]="getPosition()">
+  <div class="header" #header [class]="{ minimized: minimized, big: bigHeader }">
+    <div>{{ titleTranslationKey | translate }}</div>
+    <button *ngIf="minimizable" class="top-right-button" (click)="toggleMinimization.emit()">
+      <mat-icon *ngIf="minimized">add</mat-icon>
+      <mat-icon *ngIf="!minimized">remove</mat-icon>
+    </button>
+    <button *ngIf="closeable" class="top-right-button" (click)="closed.emit()">
+      <img src="assets/images/svg/buttons/close-panel.svg" />
+      <!-- <mat-icon>close</mat-icon> -->
+    </button>
+  </div>
+  <div [@fadeInOut]="!minimizable || !minimizeBody || !minimized ? 'expanded' : 'collapsed'" class="body">
+    <div class="body-content-wrapper" [class]="{ 'no-padding': !bodyPadding }"><ng-content></ng-content></div>
+  </div>
+</div>

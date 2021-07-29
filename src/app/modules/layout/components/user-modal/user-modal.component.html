@@ -1,0 +1,18 @@
+<div class="wrapper">
+  <div class="header">
+    <app-user-greeting [firstName]="firstName"></app-user-greeting>
+    <button type="button" class="close-button" [mat-dialog-close]="true">
+      <img src="assets/images/svg/close.svg" />
+    </button>
+  </div>
+  <mat-tab-group [(selectedIndex)]="selectedIndex">
+    <mat-tab label="{{ 'userMenu.profileDetails.title' | translate }}"
+      ><app-profile-details
+        (openDeleteAccountModal)="openDeleteAccountModal()"
+        (openAdjustProfileImageModal)="openAdjustProfileImageModal($event)"
+      ></app-profile-details
+    ></mat-tab>
+    <mat-tab label="{{ 'userMenu.designParameters.title' | translate }}"><app-design-parameters></app-design-parameters></mat-tab>
+    <mat-tab label="{{ 'userMenu.profilePreferences.title' | translate }}"><app-user-preferences></app-user-preferences></mat-tab>
+  </mat-tab-group>
+</div>

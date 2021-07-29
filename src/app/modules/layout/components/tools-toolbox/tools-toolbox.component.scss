@@ -1,0 +1,36 @@
+@import 'variables';
+
+.wrapper {
+  padding: 6px 0 4px;
+}
+.section:not(:first-child) {
+  margin-top: 16px;
+}
+
+.section-title {
+  color: $black-transparent5;
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 700;
+}
+
+.switch-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 6px 0;
+  .switch-title {
+    color: $neutral-darkest;
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 500;
+  }
+}
+
+.form-options {
+  display: flex;
+  margin: 6px 0;
+  app-button {
+    margin-right: 10px;
+  }
+}

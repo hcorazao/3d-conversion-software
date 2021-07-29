@@ -1,0 +1,17 @@
+<div class="wrapper" [class]="{ grown: draggingOrDropped }">
+  <div class="instructions-wrapper">
+    <div class="upload-image-wrapper" *ngIf="(initialCaseLoading$ | async) === false">
+      <img src="assets/images/svg/folder.svg" />
+    </div>
+    <div class="loader-wrapper" *ngIf="initialCaseLoading$ | async">
+      <div class="loader">Loading...</div>
+    </div>
+    <div class="instructions-section-main">
+      {{ 'caseFolderDropzone.infobox.section1.line1' | translate }}
+    </div>
+    <div class="instructions-section">
+      <span>{{ 'caseFolderDropzone.infobox.section2.line1' | translate }}</span>
+      <span>{{ 'caseFolderDropzone.infobox.section2.line2' | translate }}</span>
+    </div>
+  </div>
+</div>

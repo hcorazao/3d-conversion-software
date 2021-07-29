@@ -1,0 +1,96 @@
+<div class="wrapper">
+  <div class="field">
+    <div class="field-title">
+      {{ 'userMenu.profilePreferences.importFolder.title' | translate }}
+    </div>
+    <div class="field-subtitle">
+      {{ 'userMenu.profilePreferences.importFolder.subtitle' | translate }}
+    </div>
+    <div class="field-input-and-button">
+      <input
+        disabled
+        [value]="
+          (profilePreferences$ | async)?.importFolder?.name || ['userMenu.profilePreferences.importFolder.noFolderChosen' | translate]
+        "
+      />
+      <button (click)="chooseImportFolderLocation()">
+        {{ 'userMenu.profilePreferences.importFolder.changeButtonTitle' | translate }}
+      </button>
+    </div>
+  </div>
+  <!-- not needed right now (ulfwil)
+  <div class="field">
+    <div class="field-title">
+      {{ 'userMenu.profilePreferences.exportFolder.title' | translate }}
+    </div>
+    <div class="field-subtitle">
+      {{ 'userMenu.profilePreferences.exportFolder.subtitle' | translate }}
+    </div>
+    <div class="field-input-and-button">
+      <input
+        disabled
+        [value]="
+          (profilePreferences$ | async)?.exportFolder?.name || [
+            'userMenu.profilePreferences.exportFolder.noFolderChosen' | translate
+          ]
+        "
+      />
+      <button (click)="chooseExportFolderLocation()">
+        {{ 'userMenu.profilePreferences.exportFolder.changeButtonTitle' | translate }}
+      </button>
+    </div>
+  </div>
+  -->
+  <div class="field">
+    <div class="field-title">
+      {{ 'userMenu.profilePreferences.dentalNotation.title' | translate }}
+    </div>
+    <div class="field-subtitle">
+      {{ 'userMenu.profilePreferences.dentalNotation.subtitle' | translate }}
+    </div>
+    <div class="field-input-and-button">
+      <select
+        #dentalNotation
+        [ngModel]="(profilePreferences$ | async).dentalNotation || ''"
+        (change)="dentalNotationSelected(dentalNotation.value)"
+      >
+        <option selected hidden [ngValue]="''">
+          {{ 'userMenu.profilePreferences.dentalNotation.options.FDI' | translate }}
+        </option>
+        <option [value]="'ISO_3950'">
+          {{ 'userMenu.profilePreferences.dentalNotation.options.FDI' | translate }}
+        </option>
+        <option [value]="'UNS'">
+          {{ 'userMenu.profilePreferences.dentalNotation.options.UNS' | translate }}
+        </option>
+        <!-- not needed (ulfwil)
+        <option [value]="'Palmer'">
+          {{ 'userMenu.profilePreferences.dentalNotation.options.Palmer' | translate }}
+        </option>
+        -->
+      </select>
+    </div>
+  </div>
+  <div class="field">
+    <div class="field-title">{{ 'userMenu.profilePreferences.language.title' | translate }}</div>
+    <div class="field-input-and-button">
+      <select #language [ngModel]="(profilePreferences$ | async)?.language || ''" (change)="languageSelected(language.value)">
+        <option selected hidden [ngValue]="''">
+          {{ 'userMenu.profilePreferences.language.en-US' | translate }}
+        </option>
+        <option [value]="Language.en_US">
+          {{ 'userMenu.profilePreferences.language.en-US' | translate }}
+        </option>
+        <option [value]="Language.de_DE">
+          {{ 'userMenu.profilePreferences.language.de-DE' | translate }}
+        </option>
+        <option [value]="Language.es_ES">
+          {{ 'userMenu.profilePreferences.language.es-ES' | translate }}
+        </option>
+        <option [value]="Language.it_IT">
+          {{ 'userMenu.profilePreferences.language.it-IT' | translate }}
+        </option>
+      </select>
+    </div>
+  </div>
+</div>

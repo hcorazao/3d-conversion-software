@@ -1,0 +1,44 @@
+@import 'variables';
+
+.wrapper {
+  margin: 27px;
+}
+image-cropper {
+  max-width: 256px;
+  max-height: 256px;
+}
+.controls {
+  padding-right: 5px;
+  margin-top: 11px;
+  margin-left: -4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  mat-slider {
+    width: 184px;
+    height: 0;
+    padding: 0;
+    margin-top: -48px;
+  }
+}
+:host ::ng-deep mat-slider {
+  .mat-slider-thumb {
+    border: 2px solid $white;
+    width: 16px;
+    height: 16px;
+    transform: scale(0.8);
+    right: -8px;
+    bottom: -8px;
+    &:hover {
+      transform: scale(1);
+    }
+  }
+  &.mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
+    border: 2px solid $white;
+    background-color: $black;
+  }
+  .mat-slider-track-background,
+  &:hover .mat-slider-track-background {
+    background-color: $neutral-darkest-transparent1;
+  }
+}

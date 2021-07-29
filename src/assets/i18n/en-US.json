@@ -1,0 +1,592 @@
+{
+  "sidebar": {
+    "title": "Your Patients",
+    "search": {
+      "placeholder": "Search patients by name...",
+      "loading": "Loading...",
+      "patientsFoundSuffix": {
+        "zero": "PATIENTS FOUND",
+        "one": "PATIENT FOUND",
+        "multiple": "PATIENTS FOUND"
+      }
+    },
+    "suggestedImportsSection": {
+      "title": "SUGGESTED IMPORTS",
+      "loading": "Loading...",
+      "none": "no suggested imports available"
+    },
+    "recentPatientsSection": {
+      "title": "RECENT PATIENTS",
+      "loading": "Loading...",
+      "none": "no recent patients available"
+    },
+    "allPatientsSection": {
+      "title": "ALL PATIENTS",
+      "loading": "Loading...",
+      "none": "no patients available in import folder"
+    },
+    "backToImportStepModal": {
+      "title": "Confirm going back",
+      "body": "Confirm restarting current case and going back to the import step.",
+      "cancelationButton": {
+        "title": "cancel"
+      },
+      "confirmationButton": {
+        "title": "confirm"
+      }
+    },
+    "loadCaseFromImportFolderModal": {
+      "title": "Confirm loading case",
+      "body": "Confirm loading case from import folder.",
+      "cancelationButton": {
+        "title": "cancel"
+      },
+      "confirmationButton": {
+        "title": "load"
+      }
+    },
+    "dentalCase": {
+      "created": "created",
+      "case": "case",
+      "cases": "cases"
+    },
+    "errors": {
+      "caseNotAvailableInImportFolder": "Case is not available in import folder"
+    }
+  },
+  "caseFolderDropzone": {
+    "infobox": {
+      "section1": {
+        "line1": "Drag and drop a case folder to get started"
+      },
+      "section2": {
+        "line1": "Supported file types:",
+        "line2": "STL, OBJ & PLY"
+      }
+    },
+    "errors": {
+      "noCameraVendorMatch": "Uploaded folder doesn't match to any camera vendor",
+      "noSituScanAvailable": "Folder does not contain a Pre-operative scan",
+      "noObjFileType": "Uploaded folder doesn't contain OBJ files"
+    }
+  },
+  "userMenu": {
+    "greetings": {
+      "morning": "Good morning",
+      "afternoon": "Good afternoon",
+      "evening": "Good evening",
+      "welcome": "Welcome"
+    },
+    "switchAccount": "Switch account",
+    "signOut": "Sign out",
+    "profileDetails": {
+      "title": "Profile details",
+      "nameField": {
+        "title": "First and last name"
+      },
+      "practiceNameField": {
+        "title": "Practice name"
+      },
+      "profileImage": {
+        "title": "Profile image",
+        "chooseFileButton": {
+          "title": "Upload file"
+        },
+        "removeProfileImageButton": {
+          "title": "Remove"
+        },
+        "modal": {
+          "saveButton": {
+            "title": "Save"
+          }
+        }
+      },
+      "email": {
+        "title": "Email",
+        "currentPrefix": "Your email address is",
+        "newEmailField": {
+          "title": "New email address"
+        },
+        "passwordField": {
+          "title": "Password"
+        },
+        "changeButton": "Change?",
+        "hideUpdateButton": "Hide",
+        "saveUpdateButton": "Update email"
+      },
+      "password": {
+        "title": "Password",
+        "currentPrefix": "Password last changed 8 days ago",
+        "newPasswordField": {
+          "title": "New password"
+        },
+        "oldPasswordField": {
+          "title": "Old Password"
+        },
+        "changeButton": "Change?",
+        "hideUpdateButton": "Hide",
+        "saveUpdateButton": "Update password"
+      },
+      "deleteProfile": {
+        "title": "Delete my profile?",
+        "description": "You will receive an email to confirm your decision",
+        "modal": {
+          "title": "Delete your account?",
+          "description": "For security purposes, please re-enter your password below.",
+          "passwordField": {
+            "title": "Password"
+          },
+          "confirmButton": "Delete your profile"
+        }
+      }
+    },
+    "designParameters": {
+      "title": "Design parameters",
+      "occlusalContactStrength": {
+        "title": "Occlusal contact strength",
+        "subtitle": "Choose your preferred initial strength of contact to the antagonist",
+        "options": {
+          "light": {
+            "buttonTitle": "Light",
+            "description": "Initial contact will be less than 25 microns into antagonist"
+          },
+          "medium": {
+            "buttonTitle": "Medium",
+            "description": "Initial contact will be between 25 and 50 microns into antagonist"
+          },
+          "heavy": {
+            "buttonTitle": "Heavy",
+            "description": "Initial contact will be greater than 50 microns into antagonist"
+          }
+        }
+      },
+      "proximalContactStrength": {
+        "title": "Proximal contact strength",
+        "subtitle": "Choose your preferred initial strength of proximal contacts",
+        "options": {
+          "light": {
+            "buttonTitle": "Light",
+            "description": "Initial contact will be less than 25 microns into neighbouring tooth"
+          },
+          "medium": {
+            "buttonTitle": "Medium",
+            "description": "Initial contact will be between 25 and 50 microns into neighbouring tooth"
+          },
+          "heavy": {
+            "buttonTitle": "Heavy",
+            "description": "Initial contact will be greater than 50 microns into neighbouring tooth"
+          }
+        }
+      },
+      "occlusalMinimalThickness": {
+        "title": "Minimal thickness body: Occlusal",
+        "subtitle": "Define the height of the minimal thickness body"
+      },
+      "radialMinimalThickness": {
+        "title": "Minimal thickness body: Radial",
+        "subtitle": "Define the radial width of the minimal thickness body"
+      },
+      "spacers": {
+        "title": "Spacer",
+        "subtitle": "Spacer defines the cement/adhesive gap within the intaglio of the restoration",
+        "options": {
+          "light": {
+            "buttonTitle": "Light",
+            "description": "The spacer is set to 75 microns"
+          },
+          "medium": {
+            "buttonTitle": "Medium",
+            "description": "The spacer is set to 100 microns"
+          },
+          "heavy": {
+            "buttonTitle": "Heavy",
+            "description": "The spacer is set to 125 microns"
+          }
+        }
+      }
+    },
+    "profilePreferences": {
+      "title": "Preferences",
+      "importFolder": {
+        "title": "Import folder",
+        "subtitle": "Define the folder from which Clinux will import your new cases",
+        "noFolderChosen": "no folder chosen",
+        "changeButtonTitle": "Change?"
+      },
+      "exportFolder": {
+        "title": "Export folder",
+        "subtitle": "Define the folder to which Clinux will export your finished cases",
+        "noFolderChosen": "no folder chosen",
+        "changeButtonTitle": "Change?"
+      },
+      "dentalNotation": {
+        "title": "Dental notation",
+        "subtitle": "Choose your preferred tooth numbering standard",
+        "options": {
+          "FDI": "FDI",
+          "UNS": "ADA",
+          "Palmer": "Palmer"
+        }
+      },
+      "language": {
+        "title": "Language",
+        "en-US": "English",
+        "de-DE": "Deutsch",
+        "es-ES": "Español",
+        "it-IT": "Italiano"
+      }
+    },
+    "shortcutsModal": {
+      "title": "Shortcuts",
+      "essentialShortcuts": "Essential shortcuts",
+      "proUserShortcuts": "Pro user Shortcuts",
+      "undo": "Undo",
+      "redo": "Redo",
+      "resetScene": "Reset scene",
+      "hidePanels": "Hide panels",
+      "showPatientDetails": "Show patient details",
+      "export": "Export",
+      "backStep": "Back a step",
+      "forwardStep": "Forward a step"
+    },
+    "newModal": {
+      "title": "What’s new",
+      "link": "Learn more"
+    },
+    "aboutModal": {
+      "title": "About Clinux",
+      "subtitleFirstHalf": "Copyright ©",
+      "subtitleSecondHalf": "CAD-Ray",
+      "softwareDetails": {
+        "versionKey": "Version",
+        "versionValue": "1.0.0",
+        "manufacturerKey": "Manufacturer",
+        "manufacturerValue": "CAD-Ray Manufacturing GmbH"
+      },
+      "links": {
+        "terms": "Terms",
+        "privacy": "Privacy"
+      }
+    }
+  },
+  "caseProgressStepper": {
+    "header": {
+      "title": "CAD ASSISTANT",
+      "stepLabel": "STEP",
+      "tipsLabel": "TIPS"
+    },
+    "buttons": {
+      "chooseFolderButton": {
+        "title": "Choose folder"
+      },
+      "backButton": {
+        "title": "Back"
+      },
+      "nextButton": {
+        "title": "Next"
+      },
+      "exportButton": {
+        "title": "Export"
+      },
+      "undoButton": {
+        "title": "Undo"
+      },
+      "redoButton": {
+        "title": "Redo"
+      }
+    },
+    "mainSteps": {
+      "importStep": {
+        "title": "IMPORT",
+        "stepNumberTitle": "STEP ONE",
+        "substeps": {
+          "importCaseFolder": {
+            "title": "Import your case folder",
+            "tip": "Either drag your case folder onto the canvas or select it using the <b>Choose folder</b> button."
+          }
+        }
+      },
+      "preparationMarginStep": {
+        "title": "PREPARATION MARGIN",
+        "stepNumberTitle": "STEP TWO",
+        "substeps": {
+          "drawPreparationMargin": {
+            "title": "Draw preparation margin",
+            "tip": "Use your cursor to create anchor points around the affected area. <b>Don’t worry, this can be adjusted later!</b>"
+          },
+          "adjustPreparationMargin": {
+            "title": "Adjust preparation margin",
+            "tip": "Use your cursor to create anchor points around the affected area. <b>Don’t worry, this can be adjusted later!</b>"
+          }
+        }
+      },
+      "insertionAxisStep": {
+        "title": "INSERTION AXIS",
+        "stepNumberTitle": "STEP THREE",
+        "substeps": {
+          "confirmOrEditInsertionAxis": {
+            "title": "Confirm or edit insertion axis",
+            "tip": "Using the mouse, align the jaw so there is as little undercuts as possible. <b>Undercuts are highlighted in yellow.</b>"
+          }
+        }
+      },
+      "copyLineStep": {
+        "title": "COPY LINE",
+        "stepNumberTitle": "STEP FOUR",
+        "substeps": {
+          "confirmOrEditCopyLine": {
+            "title": "Confirm or edit copy line",
+            "tip": "Review the automated copy line and edit if neccessary, press <b>Next</b> if you’re happy to proceed."
+          }
+        }
+      },
+      "contactAndThicknessStep": {
+        "title": "RESTORE",
+        "stepNumberTitle": "STEP FIVE",
+        "substeps": {
+          "adjustMesialContact": {
+            "title": "Adjust mesial contact",
+            "tip": "You can adjust the crown using the form tools in your <b>Tool Panel</b>. Use the <b>Contact</b> and <b>Thickness</b> maps for more insights!"
+          },
+          "adjustDistalContact": {
+            "title": "Adjust distal contact",
+            "tip": "You can adjust the crown using the form tools in your <b>Tool Panel</b>. Use the <b>Contact</b> and <b>Thickness</b> maps for more insights!"
+          },
+          "adjustOcclusalContact": {
+            "title": "Adjust occlusal contact",
+            "tip": "You can adjust the crown using the form tools in your <b>Tool Panel</b>. Use the <b>Contact</b> and <b>Thickness</b> maps for more insights!"
+          }
+        }
+      }
+    }
+  },
+  "objectsToolbox": {
+    "title": "MODELS",
+    "subtitle": "OPACITY",
+    "upperJawSlider": {
+      "title": "Maxillary"
+    },
+    "lowerJawSlider": {
+      "title": "Mandibular"
+    },
+    "upperJawSituSlider": {
+      "title": "Maxillary Situ"
+    },
+    "lowerJawSituSlider": {
+      "title": "Mandibular Situ"
+    },
+    "crownSlider": {
+      "title": "Crown"
+    }
+  },
+  "toolsToolbox": {
+    "title": "TOOLS",
+    "contactSection": {
+      "title": "CONTACT",
+      "proximalDistanceSwitch": {
+        "title": "Proximal distance"
+      },
+      "occlusalDistanceSwitch": {
+        "title": "Occlusal distance"
+      }
+    },
+    "thicknessSection": {
+      "title": "THICKNESS",
+      "minimalThicknessSwitch": {
+        "title": "Minimal thickness"
+      }
+    },
+    "formSection": {
+      "title": "FORM",
+      "options": {
+        "add": "Add",
+        "subtract": "Subtract",
+        "smooth": "Smooth"
+      },
+      "toolRadiusSlider": {
+        "title": "Tool radius"
+      }
+    }
+  },
+  "caseDetailsCard": {
+    "title": "CASE DETAILS",
+    "details": {
+      "patient": "Patient",
+      "patientId": "Patient ID",
+      "practice": "Practice",
+      "practiceId": "Practice ID",
+      "indication": "Indication",
+      "toothNumber": "Tooth number",
+      "material": "Material",
+      "shade": "Shade"
+    }
+  },
+  "topbar": {
+    "logo": "Clinux",
+    "caseExport": {
+      "exportCase": "Export case",
+      "closeCase": "Close case"
+    },
+    "caseSavedIndicator": {
+      "tooltip": "Case saved"
+    },
+    "resetSceneButton": {
+      "title": "Reset scene"
+    },
+    "togglePanelsButton": {
+      "hideTitle": "Hide panels",
+      "showTitle": "Show panels"
+    },
+    "supportMenu": {
+      "gettingStarted": "Getting started",
+      "shortcuts": "Shortcuts",
+      "whatsNew": "What's new",
+      "sendFeedback": "Send feedback",
+      "about": "About"
+    }
+  },
+  "importFolder": {
+    "errors": {
+      "defaultFolderNotSet": "default import folder was not set up",
+      "permissionNotGranted": "permission to folder was not granted",
+      "folderNotFound": "import folder could not be found",
+      "unknownError": "unknown error with loading import folder"
+    }
+  },
+  "exportFolder": {
+    "errors": {
+      "defaultFolderNotSet": "default export folder was not set up",
+      "permissionNotGranted": "permission to folder was not granted",
+      "folderNotFound": "export folder could not be found",
+      "unknownError": "unknown error exporting to export folder"
+    }
+  },
+  "notification": {
+    "action": {
+      "dismissButton": {
+        "title": "Dismiss"
+      },
+      "installApp": {
+        "title": "Install app",
+        "description": "For a better experience and offline mode, install Clinux to your device.",
+        "actionButton": {
+          "title": "Install app"
+        }
+      },
+      "setParameters": {
+        "title": "Set your parameters",
+        "description": "Design parameters can be adjusted to suit your personal preferences.",
+        "actionButton": {
+          "title": "Fix now"
+        }
+      },
+      "setPreferences": {
+        "title": "Set your preferences",
+        "description": "Export and Import folders need to be chosen before you can Export cases",
+        "actionButton": {
+          "title": "Fix now"
+        }
+      },
+      "completeProfile": {
+        "title": "Complete your profile",
+        "description": "For optimum user experience and offline mode, install Clinux to your device",
+        "actionButton": {
+          "title": "Fix now"
+        }
+      }
+    },
+    "toast": {
+      "importingFileInsteadOfFolderError": {
+        "message": "Importing file instead of folder"
+      },
+      "caseImportedSuccessfully": {
+        "message": "Case imported successfully"
+      },
+      "caseExportedToFolderSuccessfully": {
+        "message": "Case exported to folder successfully"
+      },
+      "caseExportedToDriveSuccessfully": {
+        "message": "Case exported to drive successfully"
+      },
+      "caseExportedToDiskSuccessfully": {
+        "message": "Case exported to disk successfully"
+      },
+      "fileExportedToCaseFolderLocationSuccessfully": {
+        "message": "File exported to case folder location successfully"
+      },
+      "designParametersUpdateSuccessfully": {
+        "message": "Design parameters updated successfully"
+      },
+      "profileDetailsUpdatedSuccessfully": {
+        "message": "Profile details updated successfully"
+      },
+      "caseNameUpdatedSuccessfully": {
+        "message": "Case name updated successfully"
+      },
+      "caseDeletedSuccessfully": {
+        "message": "Case deleted successfully"
+      },
+      "avatarUpdatedSuccessfully": {
+        "message": "Avatar updated successfully"
+      },
+      "passwordUpdatedSuccessfully": {
+        "message": "Password updated successfully"
+      },
+      "emailUpdatedSuccessfully": {
+        "message": "Email updated successfully"
+      },
+      "selectedDentalCaseNotFoundInImportFolderError": {
+        "message": "Selected dental case was not found in import folder"
+      },
+      "permissionToFolderNotGrantedError": {
+        "message": "Permission to folder not granted"
+      },
+      "cannotStartNewCaseAfterRestartError": {
+        "message": "Cannot start new case after case restart"
+      },
+      "sidebarPatientIdCopiedSuccessfully": {
+        "message": "Copied to clipboard"
+      }
+    },
+    "freshCases": {
+      "title": {
+        "oneFound": "We've found a new case in your imports folder, would you like to import it?",
+        "twoFound": "We've found 2 new cases in your imports folder, would you like to import it?",
+        "threeFound": "We've found 3 new cases in your imports folder, would you like to import it?"
+      },
+      "showMore": "Show more?",
+      "showLess": "Show less"
+    },
+    "upload": {
+      "titlePrefix": "Uploading",
+      "titleSuffixSingular": "item",
+      "titleSuffixPlural": "items",
+      "upperJawFileTitle": "Maxillary",
+      "upperJawSituFileTitle": "Maxillary Situ",
+      "lowerJawFileTitle": "Mandibular",
+      "lowerJawSituFileTitle": "Mandibular Situ",
+      "caseInformationFileTitle": "Case information"
+    }
+  },
+  "shared": {
+    "time": {
+      "added": "Added",
+      "secondsAgo": "seconds ago",
+      "minuteAgo": "minute ago",
+      "minutesAgo": "minutes ago",
+      "hourAgo": "hour ago",
+      "hoursAgo": "hours ago",
+      "dayAgo": "day ago",
+      "daysAgo": "days ago",
+      "monthAgo": "month ago",
+      "monthsAgo": "months ago",
+      "yearAgo": "year ago",
+      "yearsAgo": "years ago"
+    },
+    "caseCompletionStatus": {
+      "notStarted": "Not started",
+      "inProgress": "In progress",
+      "completed": "Completed"
+    }
+  }
+}

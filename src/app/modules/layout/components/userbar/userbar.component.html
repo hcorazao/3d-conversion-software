@@ -1,0 +1,92 @@
+<div class="wrapper">
+  <div class="bar">
+    <div class="buttons">
+      <div class="dropdown-container">
+        <button class="dropdown-trigger-button" (click)="toggleSceneMenu()">
+          <img
+            [src]="sceneMenuOpen ? 'assets/images/svg/userbar/scene-active.svg' : 'assets/images/svg/userbar/scene.svg'"
+            alt="scene-menu"
+          />
+        </button>
+        <div class="menu scene-menu" [@fadeInOut]="sceneMenuOpen ? 'expanded' : 'collapsed'">
+          <div class="menu-option" [ngClass]="dentalCaseFolder ? '' : 'disabled'" (click)="resetScene()">
+            {{ 'topbar.resetSceneButton.title' | translate }}
+          </div>
+          <div class="menu-option" (click)="togglePanelsVisibility()">
+            {{ (panelsVisible ? 'topbar.togglePanelsButton.hideTitle' : 'topbar.togglePanelsButton.showTitle') | translate }}
+          </div>
+        </div>
+      </div>
+
+      <div class="dropdown-container">
+        <button class="dropdown-trigger-button support-button" (click)="toggleSupportMenu()">
+          <img
+            [src]="supportMenuOpen ? 'assets/images/svg/userbar/question-active.svg' : 'assets/images/svg/userbar/question.svg'"
+            alt="support-menu"
+          />
+        </button>
+        <div class="menu" [@fadeInOut]="supportMenuOpen ? 'expanded' : 'collapsed'">
+          <div class="menu-option">
+            {{ 'topbar.supportMenu.gettingStarted' | translate }}
+          </div>
+          <div class="menu-option" (click)="openShortcutsModal()">
+            {{ 'topbar.supportMenu.shortcuts' | translate }}
+          </div>
+          <!-- not now, but for the first update (ulfwil)
+          <div class="menu-option" (click)="openNewsModal()">
+            {{ 'topbar.supportMenu.whatsNew' | translate }}
+          </div>
+          -->
+          <div class="menu-option">
+            {{ 'topbar.supportMenu.sendFeedback' | translate }}
+          </div>
+          <div class="menu-option" (click)="openAboutModal()">
+            {{ 'topbar.supportMenu.about' | translate }}
+          </div>
+        </div>
+      </div>
+
+      <app-navigation-main-button
+        [noShadow]="true"
+        (clicked)="toggleUserMenu()"
+        [gravatarText]="userInitials$ | async"
+        [imageSource]="profileImage$ | async"
+        [avatar]="true"
+      ></app-navigation-main-button>
+    </div>
+  </div>
+
+  <div class="menu" [@fadeInOut]="userMenuOpen ? 'expanded' : 'collapsed'">
+    <div class="user-data">
+      <div class="user-name">{{ userName$ | async }}</div>
+      <div class="user-email">{{ userEmail$ | async }}</div>
+    </div>
+    <!-- will be re-added later (ulfwil)
+    <div class="menu-option">
+      <img class="menu-option-image" src="assets/images/svg/userbar/switch-account.svg" />
+      <img class="menu-option-image-hover" src="assets/images/svg/userbar/switch-account-hover.svg" />
+      <span>{{ 'userMenu.switchAccount' | translate }}</span>
+    </div>
+    -->
+    <div class="menu-option" (click)="openProfileDetails()">
+      <img class="menu-option-image" src="assets/images/svg/userbar/profile-details.svg" />
+      <img class="menu-option-image-hover" src="assets/images/svg/userbar/profile-details-hover.svg" />
+      <span>{{ 'userMenu.profileDetails.title' | translate }}</span>
+    </div>
+    <div class="menu-option" (click)="openParameters()">
+      <img class="menu-option-image" src="assets/images/svg/userbar/design-parameters.svg" />
+      <img class="menu-option-image-hover" src="assets/images/svg/userbar/design-parameters-hover.svg" />
+      <span>{{ 'userMenu.designParameters.title' | translate }}</span>
+    </div>
+    <div class="menu-option" (click)="openPreferences()">
+      <img class="menu-option-image" src="assets/images/svg/userbar/preferences.svg" />
+      <img class="menu-option-image-hover" src="assets/images/svg/userbar/preferences-hover.svg" />
+      <span>{{ 'userMenu.profilePreferences.title' | translate }}</span>
+    </div>
+    <div class="menu-option" (click)="logout()">
+      <img class="menu-option-image" src="assets/images/svg/userbar/sign-out.svg" />
+      <img class="menu-option-image-hover" src="assets/images/svg/userbar/sign-out-hover.svg" />
+      <span>{{ 'userMenu.signOut' | translate }}</span>
+    </div>
+  </div>
+</div>

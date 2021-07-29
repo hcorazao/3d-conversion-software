@@ -1,0 +1,6 @@
+<div class="wrapper">
+  <div class="message">{{ notification.messageTranslationKey | translate }}</div>
+  <div class="close-button-wrapper">
+    <app-auto-closing-button (closed)="dismiss()"></app-auto-closing-button>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<div class="wrapper">
+  <div class="body">
+    <div class="body-header">
+      <div>
+        {{ getCurrentBodyHeaderTranslationKey() | translate }}
+      </div>
+
+      <div class="tips">
+        <span class="tips-title">{{ 'caseProgressStepper.header.tipsLabel' | translate }}</span>
+        <app-switch [on]="tipsEnabled" (toggled)="toggleTipsEnabled.emit()"></app-switch>
+      </div>
+    </div>
+    <div class="stepper-wrapper">
+      <app-case-progress-steps
+        [currentMainStep]="currentMainStep"
+        [currentSubstep]="currentSubstep"
+        [minimized]="minimized"
+        [tipsEnabled]="tipsEnabled"
+        [undoEnabled]="undoButtonEnabled$ | async"
+        [redoEnabled]="redoButtonEnabled$ | async"
+        [jumpsAvailabilities]="stepperJumpsAvailabilities"
+        [jumpsTransitions]="stepperJumpsTransitions"
+        [jumpsSubstepsTargets]="stepperJumpsSubstepsTargets"
+        (stepHeaderClicked)="jumpToStepAfterStepHeaderClicked($event)"
+        (undo)="undoActionInStep()"
+        (redo)="redoActionInStep()"
+      ></app-case-progress-steps>
+    </div>
+  </div>
+  <div class="footer">
+    <div *ngIf="currentStep === 1 && !chooseFolderVisible" class="footer-buttons">
+      <app-button
+        class="choose-folder-button"
+        [type]="ButtonType.primary"
+        [title]="'caseProgressStepper.buttons.chooseFolderButton.title' | translate"
+        [wide]="true"
+        (clicked)="chooseFolder()"
+      >
+      </app-button>
+    </div>
+    <div *ngIf="(currentStep === 1 && chooseFolderVisible) || (currentStep > minStep && currentStep < maxStep)" class="footer-buttons">
+      <app-button
+        [type]="ButtonType.neutral"
+        [title]="'caseProgressStepper.buttons.backButton.title' | translate"
+        [disabled]="previousStepButtonDisabled$ | async"
+        (clicked)="goToPreviousStep()"
+      >
+      </app-button>
+      <app-button
+        [type]="ButtonType.primary"
+        [title]="'caseProgressStepper.buttons.nextButton.title' | translate"
+        [disabled]="nextStepButtonDisabled$ | async"
+        (clicked)="goToNextStep()"
+      >
+      </app-button>
+    </div>
+    <div *ngIf="currentStep === maxStep" class="footer-buttons">
+      <app-button
+        [type]="ButtonType.neutral"
+        [title]="'caseProgressStepper.buttons.backButton.title' | translate"
+        (clicked)="goToPreviousStep()"
+      >
+      </app-button>
+      <app-button
+        [type]="ButtonType.primary"
+        [title]="'caseProgressStepper.buttons.exportButton.title' | translate"
+        [disabled]="cadAssistantExportDisabled$ | async"
+        (clicked)="completeAndExportCase()"
+      >
+      </app-button>
+    </div>
+  </div>
+</div>

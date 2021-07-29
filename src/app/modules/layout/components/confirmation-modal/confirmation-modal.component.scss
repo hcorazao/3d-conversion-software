@@ -1,0 +1,50 @@
+@import 'variables';
+
+.wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.header {
+  padding: 14px 14px 14px 20px;
+  border-bottom: 1px solid $neutral-darkest-transparent3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  width: 24px;
+  height: 24px;
+  outline: none;
+  color: $neutral-darkest-transparent3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 700;
+  z-index: 1;
+  &:hover {
+    cursor: pointer;
+    background-color: $neutral-darkest-transparent1;
+    border-radius: 50%;
+  }
+}
+
+.content {
+  padding: 20px 14px 14px 20px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  app-button {
+    margin-left: 8px;
+  }
+}

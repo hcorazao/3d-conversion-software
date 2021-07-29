@@ -1,0 +1,78 @@
+@import 'variables';
+
+.header {
+  display: flex;
+  flex-direction: column;
+  background-color: $white;
+  padding: 6px 10px 8px 8px;
+
+  color: $neutral-darkest;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 400;
+
+  &:hover:not(.disabled) {
+    background-color: $secondary-transparent1;
+    border-radius: 14px;
+    cursor: pointer;
+    .name {
+      color: $secondary;
+    }
+  }
+
+  .patient-name-and-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .patient-name {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      max-width: 240px;
+      cursor: pointer;
+    }
+    .case-controls {
+      display: flex;
+      button {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: none;
+        border: none;
+        outline: none;
+      }
+    }
+  }
+  .patient-info {
+    margin-top: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 500;
+    color: $neutral-darkest-transparent5;
+    .id-copier-container {
+      background: $neutral-darkest-transparent05;
+      border-radius: 5px;
+      padding: 4.5px 7.5px;
+      margin: 0 5px 0 4px;
+      font-weight: 400;
+      &.darker {
+        background: $neutral-darkest-transparent1;
+      }
+      .id-copier-button {
+        margin-left: 4px;
+        padding: 0;
+        background: none;
+        outline: none;
+        border: none;
+      }
+    }
+  }
+}
+.dental-cases {
+  overflow: hidden;
+}

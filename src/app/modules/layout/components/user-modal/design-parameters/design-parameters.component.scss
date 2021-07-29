@@ -1,0 +1,105 @@
+@import 'variables';
+
+$gutter: 24px;
+
+.wrapper {
+  padding: 35px $gutter 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.field {
+  margin-bottom: 27px;
+  display: flex;
+  flex-direction: column;
+  &-title {
+    font-size: 14px;
+    line-height: 18px;
+    color: $neutral-darkest;
+    margin-bottom: 4px;
+  }
+  &-subtitle {
+    font-size: 12px;
+    line-height: 15px;
+    color: $black-transparent5;
+    margin-bottom: 9px;
+  }
+  .options {
+    display: flex;
+    margin-bottom: 9px;
+    .option-button {
+      margin-right: 9px;
+      padding: 8px 12px;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 15px;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      background-color: $black-transparent05;
+      color: $neutral-darkest-transparent3;
+      &.selected {
+        background-color: $secondary;
+        color: $white;
+      }
+    }
+  }
+  .slider-with-preview {
+    display: flex;
+    .slider {
+      width: 280px;
+      display: flex;
+      align-items: center;
+      height: 24px;
+      min-height: 24px;
+      mat-slider {
+        width: 280px;
+        min-width: 280px;
+        margin: 0 -8px;
+      }
+    }
+    .slider-preview {
+      font-size: 16px;
+      line-height: 20px;
+      color: $neutral-darkest;
+      background-color: $black-transparent05;
+      border-radius: 5px;
+      margin-left: 22px;
+      width: 50px;
+      height: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .option-description {
+    color: $secondary;
+    font-size: 12px;
+    line-height: 15px;
+    height: 16px;
+  }
+}
+.separator {
+  margin: 5px (-$gutter) 34px;
+  border-bottom: 1px solid $neutral-darkest-transparent1;
+}
+
+:host ::ng-deep mat-slider {
+  .mat-slider-thumb {
+    border: 2px solid $white;
+    width: 20px;
+    height: 20px;
+    transform: scale(0.8);
+    &:hover {
+      transform: scale(1);
+    }
+  }
+  &.mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
+    border: 2px solid $white;
+    background-color: $black;
+  }
+  .mat-slider-track-background,
+  &:hover .mat-slider-track-background {
+    background-color: $neutral-darkest-transparent1;
+  }
+}

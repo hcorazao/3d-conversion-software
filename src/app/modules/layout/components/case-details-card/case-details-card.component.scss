@@ -1,0 +1,29 @@
+@import 'variables';
+
+.wrapper {
+  position: absolute;
+  top: 27px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  box-shadow: $panel-shadow;
+  background-color: $neutral-darkest-transparent7;
+  z-index: 101;
+
+  header {
+    padding: 13px 16px 10px;
+    color: $white;
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: bold;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  section {
+    padding: 16px;
+  }
+}

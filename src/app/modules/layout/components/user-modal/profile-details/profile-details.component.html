@@ -1,0 +1,127 @@
+<div class="wrapper">
+  <div class="field-group-horizontal">
+    <div class="field-group-names">
+      <div class="field">
+        <div class="field-label">{{ 'userMenu.profileDetails.nameField.title' | translate }}</div>
+        <input />
+      </div>
+      <div class="field">
+        <div class="field-title">
+          {{ 'userMenu.profileDetails.practiceNameField.title' | translate }}
+        </div>
+        <input />
+      </div>
+    </div>
+    <div class="profile-image-wrapper">
+      <div class="field">
+        <div class="field-title">
+          {{ 'userMenu.profileDetails.profileImage.title' | translate }}
+        </div>
+        <div class="profile-image">
+          <div *ngIf="!!(profileDetails$ | async).profileImage === false" class="profile-gravatar">
+            {{ getInitials(userName$ | async) }}
+          </div>
+          <img
+            *ngIf="!!(profileDetails$ | async).profileImage === true"
+            class="profile-image"
+            [src]="(profileDetails$ | async).profileImage"
+          />
+          <div class="buttons">
+            <app-button
+              [type]="ButtonType.neutral"
+              [title]="'userMenu.profileDetails.profileImage.chooseFileButton.title' | translate"
+              (clicked)="fileChooser.click()"
+            >
+            </app-button>
+            <app-button
+              *ngIf="!!(profileDetails$ | async).profileImage === true"
+              [type]="ButtonType.neutral"
+              [title]="'userMenu.profileDetails.profileImage.removeProfileImageButton.title' | translate"
+              (clicked)="removeProfileImage()"
+            >
+            </app-button>
+          </div>
+          <input #fileChooser type="file" class="choose-profile-image-input" (change)="chooseProfileImage($event)" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="separator"></div>
+  <div class="field-group">
+    <div class="field-group-readonly">
+      <div class="field-group-title">
+        {{ 'userMenu.profileDetails.email.title' | translate }}
+      </div>
+      <div class="field-group-details">
+        {{ 'userMenu.profileDetails.email.currentPrefix' | translate }}
+      </div>
+      <button class="field-group-edit" (click)="changingEmail = !changingEmail">
+        {{ (changingEmail ? 'userMenu.profileDetails.email.hideUpdateButton' : 'userMenu.profileDetails.email.changeButton') | translate }}
+      </button>
+    </div>
+    <div class="field-group-editable" [@fadeInOut]="changingEmail ? 'expanded' : 'collapsed'">
+      <div class="fields-horizontal">
+        <div class="field left-field">
+          <div class="field-title">
+            {{ 'userMenu.profileDetails.email.newEmailField.title' | translate }}
+          </div>
+          <input />
+        </div>
+        <div class="field right-field">
+          <div class="field-title">
+            {{ 'userMenu.profileDetails.email.passwordField.title' | translate }}
+          </div>
+          <input type="password" />
+        </div>
+      </div>
+      <div class="save-button-wrapper">
+        <app-button [type]="ButtonType.secondary" [title]="'userMenu.profileDetails.email.saveUpdateButton' | translate"></app-button>
+      </div>
+    </div>
+  </div>
+  <div class="separator"></div>
+  <div class="field-group">
+    <div class="field-group-readonly">
+      <div class="field-group-title">
+        {{ 'userMenu.profileDetails.password.title' | translate }}
+      </div>
+      <div class="field-group-details">
+        {{ 'userMenu.profileDetails.password.currentPrefix' | translate }}
+      </div>
+      <button class="field-group-edit" (click)="changingPassword = !changingPassword">
+        {{
+          (changingPassword ? 'userMenu.profileDetails.password.hideUpdateButton' : 'userMenu.profileDetails.password.changeButton')
+            | translate
+        }}
+      </button>
+    </div>
+    <div class="field-group-editable" [@fadeInOut]="changingPassword ? 'expanded' : 'collapsed'">
+      <div class="fields-horizontal">
+        <div class="field left-field">
+          <div class="field-title">
+            {{ 'userMenu.profileDetails.password.newPasswordField.title' | translate }}
+          </div>
+          <input type="password" />
+        </div>
+        <div class="field right-field">
+          <div class="field-title">
+            {{ 'userMenu.profileDetails.password.oldPasswordField.title' | translate }}
+          </div>
+          <input type="password" />
+        </div>
+      </div>
+      <div class="save-button-wrapper">
+        <app-button [type]="ButtonType.secondary" [title]="'userMenu.profileDetails.password.saveUpdateButton' | translate"> </app-button>
+      </div>
+    </div>
+  </div>
+  <div class="separator"></div>
+  <div class="field-group">
+    <button class="delete-profile-button" (click)="onDeleteAccount()">
+      {{ 'userMenu.profileDetails.deleteProfile.title' | translate }}
+    </button>
+    <div class="delete-profile-description">
+      {{ 'userMenu.profileDetails.deleteProfile.description' | translate }}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="wrapper">
+  <div class="dev-tool-wrapper">
+    <span class="dev-tool-title">Show mesh</span>
+    <app-switch [on]="devSettings.meshVisibility" (toggled)="toggleMeshVisibility()"></app-switch>
+  </div>
+  <div class="dev-tool-wrapper">
+    <span class="dev-tool-title">Dev UI</span>
+    <app-switch [on]="devSettings.devUI" (toggled)="toggleDevUI()"></app-switch>
+  </div>
+  <div class="dev-tool-wrapper">
+    <span class="dev-tool-title">Create random toast notification</span>
+    <button (click)="createRandomToastNotification()"><mat-icon>add</mat-icon></button>
+  </div>
+  <div class="dev-tool-wrapper">
+    <span class="dev-tool-title">Create random action notification</span>
+    <button (click)="createRandomActionNotification()"><mat-icon>add</mat-icon></button>
+  </div>
+  <div class="dev-tool-wrapper">
+    <span class="dev-tool-title">Display upload notification</span>
+    <button (click)="displayUploadNotification()"><mat-icon>add</mat-icon></button>
+  </div>
+  <div class="dev-tool-wrapper">
+    <span class="dev-tool-title">Create Recent Cases for notification</span>
+    <button (click)="createRecentCasesForBottomNotification()"><mat-icon>add</mat-icon></button>
+  </div>
+  <div class="dev-tool-wrapper">
+    <span class="dev-tool-title">Babylon Debug Call</span>
+    <button (click)="callBabylonForDebug()"><mat-icon>bug_report</mat-icon></button>
+  </div>
+  <div class="dev-tool-wrapper">
+    <span class="dev-tool-title">Reposition panels</span>
+    <app-switch [on]="panelsRepositioning$ | async" (toggled)="togglePanelsRepositioning()"></app-switch>
+  </div>
+</div>

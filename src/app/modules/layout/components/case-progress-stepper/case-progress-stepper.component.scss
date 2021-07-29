@@ -1,0 +1,41 @@
+@import 'variables';
+
+.wrapper {
+  .body {
+    margin-bottom: 12px;
+    .body-header {
+      color: $black-transparent5;
+      font-size: 12px;
+      line-height: 15px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      padding: 13px 16px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .tips {
+        display: flex;
+        align-items: center;
+        &-title {
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+  .footer {
+    padding: 8px 0 0;
+    .footer-buttons {
+      border-top: 1px solid $neutral-darkest-transparent1;
+      padding: 15px 16px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+app-button.choose-folder-button {
+  width: 100%;
+}
+.choose-folder-input {
+  display: none;
+}

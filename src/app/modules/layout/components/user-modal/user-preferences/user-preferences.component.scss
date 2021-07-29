@@ -1,0 +1,59 @@
+@import 'variables';
+
+.wrapper {
+  padding: 35px 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.field {
+  margin-bottom: 21px;
+  display: flex;
+  flex-direction: column;
+  &-title {
+    font-size: 14px;
+    line-height: 18px;
+    color: $neutral-darkest;
+    margin-bottom: 4px;
+  }
+  &-subtitle {
+    font-size: 12px;
+    line-height: 15px;
+    color: $black-transparent5;
+    margin-bottom: 9px;
+  }
+  &-input-and-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    input {
+      width: 368px;
+      padding: 11px 12px 9px;
+      font-size: 16px;
+      line-height: 20px;
+      color: $neutral-darkest-transparent3;
+    }
+    select {
+      width: 368px;
+      padding: 11px 12px 9px;
+      font-size: 16px;
+      line-height: 20px;
+      color: $neutral-darkest;
+      border: 1px solid $neutral-darkest-transparent3;
+      border-radius: 5px;
+      height: 44px;
+    }
+    button {
+      margin-left: 16px;
+      border: none;
+      outline: none;
+      background: none;
+      font-size: 16px;
+      line-height: 20px;
+      color: $secondary;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

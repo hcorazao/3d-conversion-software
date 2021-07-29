@@ -1,0 +1,59 @@
+<div class="d-flex">
+  <app-navigation-main-button
+    (clicked)="toggleSidebar.emit()"
+    [resizeOnHover]="false"
+    [imageSource]="toggledSidebar ? 'assets/images/svg/buttons/sidebar-hide.svg' : 'assets/images/svg/buttons/sidebar-show.svg'"
+    [hoverImageSource]="
+      toggledSidebar ? 'assets/images/svg/buttons/sidebar-hide-hover.svg' : 'assets/images/svg/buttons/sidebar-show-hover.svg'
+    "
+  ></app-navigation-main-button>
+  <div class="main-topbar-wrapper">
+    <div class="logo" [class]="{ 'flat-right-edge': !!dentalCaseFolder }">
+      <img src="../../../../../assets/icons/icon-72x72.png" height="26px" class="mr-2" alt="Logo" />
+      {{ 'topbar.logo' | translate }}
+    </div>
+    <div *ngIf="dentalCaseFolder" class="separator-wrapper">
+      <div class="separator"></div>
+    </div>
+    <div *ngIf="dentalCaseFolder" class="case-breadcrumbs">
+      <div class="breadcrumbs-patient flex-text-truncate" (click)="searchPatientDentalCases()" [title]="dentalCaseFolder.patient?.name">
+        {{ dentalCaseFolder.patient?.name }}
+      </div>
+      <div class="breadcrumbs-separator">
+        <img src="assets/images/svg/breadcrumb-separator.svg" />
+      </div>
+      <div class="breadcrumbs-dental-case flex-text-truncate" [title]="dentalCaseFolder.dentalCase?.name">
+        {{ dentalCaseFolder.dentalCase?.name }}
+      </div>
+      <div class="case-info">
+        <div class="breadcrumbs-dental-case-info-icon" (mouseenter)="toggleCaseInfoTooltip()" (mouseleave)="toggleCaseInfoTooltip()">
+          <img class="image-without-hover" src="assets/images/svg/buttons/info.svg" />
+          <img class="image-with-hover" src="assets/images/svg/buttons/info-hover.svg" />
+        </div>
+        <div class="case-info-tooltip" *ngIf="caseInfoTooltipOpen">
+          <app-case-details-card [dentalCaseFolder]="dentalCaseFolder"></app-case-details-card>
+        </div>
+      </div>
+      <!-- not needed now (ulfwil)
+      <div class="case-saved-indicator" [matTooltip]="'topbar.caseSavedIndicator.tooltip' | translate"></div>
+      -->
+    </div>
+    <div *ngIf="dentalCaseFolder" class="export-button-and-panel">
+      <app-navigation-main-button
+        (clicked)="toggleExportPanel()"
+        [flatLeftEdge]="true"
+        [noShadow]="true"
+        [resizeOnHover]="false"
+        [imageSource]="exportPanelOpen ? 'assets/images/svg/buttons/expand.svg' : 'assets/images/svg/buttons/collapse.svg'"
+      ></app-navigation-main-button>
+      <div class="menu" *ngIf="exportPanelOpen">
+        <div class="menu-option" (click)="exportCase()">
+          <span>{{ 'topbar.caseExport.exportCase' | translate }}</span>
+        </div>
+        <div class="menu-option" (click)="closeCase()">
+          <span>{{ 'topbar.caseExport.closeCase' | translate }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

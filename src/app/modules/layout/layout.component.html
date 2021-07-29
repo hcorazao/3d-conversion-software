@@ -1,0 +1,131 @@
+<div class="sidebar-wrapper" [class]="{ visible: sidebarOpen$ | async }">
+  <app-sidebar></app-sidebar>
+</div>
+<div class="main" #main [class]="{ 'sidebar-visible': sidebarOpen$ | async }">
+  <router-outlet></router-outlet>
+  <div class="topbar-wrapper">
+    <app-topbar
+      [dentalCaseFolder]="dentalCaseFolder"
+      [toggledSidebar]="sidebarOpen$ | async"
+      (toggleSidebar)="toggleSidebar()"
+    ></app-topbar>
+  </div>
+  <div class="userbar-wrapper">
+    <app-userbar [dentalCaseFolder]="dentalCaseFolder" [panelsVisible]="panelsVisible$ | async"></app-userbar>
+  </div>
+  <div
+    *ngIf="caseFolderImportComponentVisible$ | async"
+    class="case-folder-dropzone-infobox-wrapper"
+    [class]="{ 'dragging-folder': draggingFolder }"
+  >
+    <app-case-folder-dropzone-infobox [draggingOrDropped]="draggingFolder || droppedFolder"></app-case-folder-dropzone-infobox>
+  </div>
+  <div
+    #devToolbox
+    *ngIf="devToolsUsagePermission$ | async"
+    class="toolbox-wrapper"
+    [@fadeInOut]="(panelsVisible$ | async) === true ? 'displayed' : 'hidden'"
+    [class]="{ focused: devPanelFocused }"
+  >
+    <app-toolbox
+      [settings]="allToolboxesSettings.devToolboxSettings"
+      [titleTranslationKey]="'DEV TOOLS'"
+      [minimizable]="true"
+      [minimized]="allToolboxesSettings.devToolboxSettings.minimized"
+      (toggleMinimization)="toggleMinimizationDevToolbox()"
+      (dragOffsetChanged)="saveNewDevToolboxPosition($event)"
+      (focusChanged)="devPanelFocused = $event"
+    >
+      <app-dev-toolbox></app-dev-toolbox>
+    </app-toolbox>
+  </div>
+  <div
+    #toolsToolbox
+    *ngIf="toolsToolboxVisible$ | async"
+    class="toolbox-wrapper"
+    [@fadeInOut]="(panelsVisible$ | async) === true ? 'displayed' : 'hidden'"
+    [class]="{ focused: toolsPanelFocused }"
+  >
+    <app-toolbox
+      [settings]="allToolboxesSettings.toolsToolboxSettings"
+      [titleTranslationKey]="'toolsToolbox.title'"
+      [minimizable]="true"
+      [minimized]="allToolboxesSettings.toolsToolboxSettings.minimized"
+      (toggleMinimization)="toggleMinimizationToolsToolbox()"
+      (dragOffsetChanged)="saveNewToolsToolboxPosition($event)"
+      (focusChanged)="toolsPanelFocused = $event"
+    >
+      <app-tools-toolbox></app-tools-toolbox>
+    </app-toolbox>
+  </div>
+  <div
+    #caseObjectsToolbox
+    *ngIf="objectsToolboxVisible$ | async"
+    class="toolbox-wrapper"
+    [@fadeInOut]="(panelsVisible$ | async) === true ? 'displayed' : 'hidden'"
+    [class]="{ focused: caseObjectsPanelFocused }"
+  >
+    <app-toolbox
+      [settings]="allToolboxesSettings.caseObjectsToolboxSettings"
+      [titleTranslationKey]="'objectsToolbox.title'"
+      [minimizable]="true"
+      [minimized]="allToolboxesSettings.caseObjectsToolboxSettings.minimized"
+      (toggleMinimization)="toggleMinimizationObjectsToolbox()"
+      (dragOffsetChanged)="saveNewCaseObjectsToolboxPosition($event)"
+      (focusChanged)="caseObjectsPanelFocused = $event"
+    >
+      <app-objects-toolbox></app-objects-toolbox>
+    </app-toolbox>
+  </div>
+  <div
+    #cadAssistantToolbox
+    class="toolbox-wrapper"
+    [@fadeInOut]="(panelsVisible$ | async) === true ? 'displayed' : 'hidden'"
+    [class]="{ focused: cadAssistantPanelFocused }"
+  >
+    <app-toolbox
+      [settings]="allToolboxesSettings.cadAssistantToolboxSettings"
+      [titleTranslationKey]="'caseProgressStepper.header.title'"
+      [bigHeader]="true"
+      [bodyPadding]="false"
+      [minimizable]="true"
+      [minimized]="allToolboxesSettings.cadAssistantToolboxSettings.minimized"
+      [minimizeBody]="false"
+      (toggleMinimization)="toggleMinimizationCaseProgressStepper()"
+      (dragOffsetChanged)="saveNewCadAssistantToolboxPosition($event)"
+      (focusChanged)="cadAssistantPanelFocused = $event"
+    >
+      <app-case-progress-stepper
+        [minimized]="allToolboxesSettings.cadAssistantToolboxSettings.minimized"
+        [tipsEnabled]="allToolboxesSettings.cadAssistantToolboxSettings.tipsEnabled"
+        (toggleTipsEnabled)="toggleCadAssistantTipsEnabled()"
+      ></app-case-progress-stepper>
+    </app-toolbox>
+  </div>
+  <div class="bottom-left-notifications-wrapper">
+    <div *ngIf="actionNotificationsVisible$ | async" class="action-notifications-wrapper">
+      <app-action-notification
+        *ngFor="let actionNotification of actionNotifications$ | async"
+        [notification]="actionNotification"
+      ></app-action-notification>
+    </div>
+    <app-upload-notification *ngIf="uploadNotificationDisplayed$ | async"></app-upload-notification>
+  </div>
+  <div class="bottom-center-notifications-wrapper">
+    <app-fresh-cases-notification
+      *ngIf="(freshCasesNotificationVisible$ | async) && (freshDentalCasesForNotification$ | async).length > 0"
+      [freshDentalCases]="freshDentalCasesForNotification$ | async"
+    ></app-fresh-cases-notification>
+    <app-toast-notification
+      *ngFor="let toastNotification of toastNotifications$ | async"
+      [notification]="toastNotification"
+    ></app-toast-notification>
+  </div>
+</div>
+<div
+  class="dropzone-wrapper"
+  [class]="{ hidden: !draggingFolder }"
+  (dragover)="allowDrop($event)"
+  (drop)="onFileOrCatalogDropped($event)"
+  (dragleave)="onFileOrCatalogLeave()"
+></div>

@@ -1,0 +1,48 @@
+export enum TransitionEnum {
+  // 1 Import
+  Start = 'Start',
+  Start2PrepImported = 'Start2PrepImported',
+  PrepImported2EnterMargin = 'PrepImported2EnterMargin',
+  // 2 Preparation Margin
+  Enter2EnteredMargin = 'Enter2EnteredMargin',
+  Entered2EnterMargin = 'Entered2EnterMargin',
+  PrepMargin2CreateInsertionAxis = 'PrepMargin2CreateInsertionAxis',
+  EnterPrepMargin2AppStarted = 'EnterPrepMargin2AppStarted',
+  PrepMarginEntered2AppStarted = 'EnterPrepMarginEntered2AppStarted',
+  PrepMargin2InsertionAxis = 'PrepMargin2InsertionAxis',
+  PrepMargin2CopyLine = 'PrepMargin2CopyLine',
+  PrepMargin2CopyRestoration = 'PrepMargin2CopyRestoration',
+  PrepMargin2ExportRestoration = 'PrepMargin2ExportRestoration',
+  // 3 Insertion Axis
+  Create2CreatedInsertionAxis = 'Create2CreatedInsertionAxis',
+  InsertionAxis2CreateCopyLine = 'InsertionAxis2CreateCopyLine',
+  InsertionAxis2AppStarted = 'InsertionAxis2AppStarted',
+  InsertionAxis2PrepMargin = 'InsertionAxis2PrepMargin',
+  InsertionAxis2CopyLine = 'InsertionAxis2CopyLine',
+  InsertionAxis2CopyRestoration = 'InsertionAxis2CopyRestoration',
+  InsertionAxis2ExportRestoration = 'InsertionAxis2ExportRestoration',
+  // 4 Copy Line
+  Create2CreatedCopyLine = 'Create2CreatedCopyLine',
+  CopyLine2CreateCopyRestoration = 'CopyLine2CreateCopyRestoration',
+  CopyLine2AppStarted = 'CopyLine2AppStarted',
+  CopyLine2PrepMargin = 'CopyLine2PrepMargin',
+  CopyLine2InsertionAxis = 'CopyLine2InsertionAxis',
+  CopyLine2CopyRestoration = 'CopyLine2CopyRestoration',
+  CopyLine2ExportRestoration = 'CopyLine2ExportRestoration',
+  // 5 Copy Restoration
+  Create2CreatedCopyRestoration = 'Create2CreatedCopyRestoration',
+  Adjust2MesialContact = 'Adjust2MesialContact',
+  Adjust2DistalContact = 'Adjust2DistalContact',
+  Adjust2OcclusalContact = 'Adjust2OcclusalContact',
+  CopyRestoration2ExportRestoration = 'CopyRestoration2ExportRestoration',
+  CopyRestoration2AppStarted = 'CopyRestoration2AppStarted',
+  CopyRestoration2PrepMargin = 'CopyRestoration2PrepMargin',
+  CopyRestoration2InsertionAxis = 'CopyRestoration2InsertionAxis',
+  CopyRestoration2CopyLine = 'CopyRestoration2CopyLine',
+  // 6 Export Restoration
+  ExportRestoration2AppStarted = 'ExportRestoration2AppStarted',
+  ExportRestoration2PrepMargin = 'ExportRestoration2PrepMargin',
+  ExportRestoration2InsertionAxis = 'ExportRestoration2InsertionAxis',
+  ExportRestoration2CopyLine = 'ExportRestoration2CopyLine',
+  ExportRestoration2CopyRestoration = 'ExportRestoration2CopyRestoration',
+}

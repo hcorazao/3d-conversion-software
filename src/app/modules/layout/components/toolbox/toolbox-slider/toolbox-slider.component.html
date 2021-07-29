@@ -1,0 +1,27 @@
+<div class="wrapper">
+  <div class="title" [class]="{ 'min-value': (switchVisible && (value === min || value === undefined)) || disabled }">
+    {{ title }}
+  </div>
+  <div class="slider">
+    <mat-slider
+      [min]="min"
+      [max]="max"
+      [step]="step"
+      [value]="value"
+      [color]="'primary'"
+      [disabled]="disabled"
+      (change)="valueChanged($event)"
+      (input)="valueDragged($event)"
+    ></mat-slider>
+  </div>
+  <div class="toolbox-toggle" (click)="toggleScrollVisibility()" *ngIf="switchVisible">
+    <img
+      [src]="
+        value === min || value === undefined
+          ? 'assets/images/svg/toolbox/icon-visible-disabled.svg'
+          : 'assets/images/svg/toolbox/icon-visible-enabled.svg'
+      "
+      alt="toggle-toolbox"
+    />
+  </div>
+</div>

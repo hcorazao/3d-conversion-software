@@ -1,0 +1,86 @@
+<div class="wrapper">
+  <div
+    class="step-header"
+    [class]="{ current: currentMainStep === mainStep, last: lastStep, clickable: jumpAvailable }"
+    (click)="jumpAvailable && stepHeaderClicked.emit()"
+    (mouseenter)="toggleHovered(true)"
+    (mouseleave)="toggleHovered(false)"
+  >
+    <div class="step-badge-wrapper">
+      <div class="step-badge">
+        <span *ngIf="currentMainStep <= mainStep">{{ mainStep }}</span>
+        <img *ngIf="currentMainStep > mainStep && !isHovered" src="assets/images/svg/buttons/check.svg" alt="edit-step" />
+        <img *ngIf="currentMainStep > mainStep && isHovered" src="assets/images/svg/buttons/edit.svg" alt="edit-step" />
+      </div>
+    </div>
+    <div class="title">{{ title }}</div>
+  </div>
+  <div class="substeps-wrapper" [@slowExpandCollapse]="currentMainStep === mainStep ? 'expanded' : 'collapsed'">
+    <ng-container *ngFor="let substep of substeps">
+      <div class="substep-wrapper">
+        <div
+          class="substep"
+          [class]="{
+            current: currentSubstep === substep.substepNumber,
+            previous: currentSubstep > substep.substepNumber,
+            last:
+              (!tipsEnabled || (tipsEnabled && currentSubstep < substeps.length)) && lastStep && substep.substepNumber === substeps.length,
+            lower: tipsEnabled && substep.substepNumber !== 1 && currentSubstep === substep.substepNumber - 1
+          }"
+        >
+          <div class="substep-line-with-buttons">
+            <div class="substep-line" [class]="{ clickable: false }">
+              <div class="substep-badge-wrapper"><div class="substep-badge"></div></div>
+              <div class="substep-title">{{ substep.prefixTranslationKey + 'title' | translate }}</div>
+            </div>
+            <div
+              [@quickExpandCollapse]="
+                currentMainStep === mainStep && currentSubstep === substep.substepNumber && substep.buttonsAvailable
+                  ? 'expanded'
+                  : 'collapsed'
+              "
+              class="buttons"
+            >
+              <app-button
+                [type]="ButtonType.neutral"
+                [title]="'caseProgressStepper.buttons.undoButton.title' | translate"
+                [disabled]="!undoEnabled"
+                (clicked)="undoEnabled && undo.emit()"
+                customClass="stepper-action"
+              >
+              </app-button>
+              <app-button
+                [type]="ButtonType.neutral"
+                [title]="'caseProgressStepper.buttons.redoButton.title' | translate"
+                [disabled]="!redoEnabled"
+                (clicked)="redoEnabled && redo.emit()"
+                customClass="stepper-action"
+              >
+              </app-button>
+            </div>
+          </div>
+          <div
+            [@quickExpandCollapse]="
+              tipsEnabled && currentMainStep === mainStep && currentSubstep === substep.substepNumber ? 'expanded' : 'collapsed'
+            "
+            class="substep-tip"
+          >
+            <div
+              [@fadeInOut]="
+                tipsEnabled && currentMainStep === mainStep && currentSubstep === substep.substepNumber ? 'opaque' : 'transparent'
+              "
+              class="substep-tip-arrow"
+            ></div>
+            <div [innerHTML]="substep.prefixTranslationKey + 'tip' | translate"></div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div
+    [@quickExpandCollapse]="
+      currentMainStep === mainStep && !lastStep && tipsEnabled && currentSubstep === substeps.length ? 'expanded' : 'collapsed'
+    "
+    class="substeps-footer"
+  ></div>
+</div>

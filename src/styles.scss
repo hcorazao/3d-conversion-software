@@ -1,0 +1,64 @@
+@import './assets/styles/material-theme.scss';
+@import './assets/styles/_fonts';
+@import './assets/styles/_colors';
+
+body,
+.container-fluid {
+  color: black;
+  font-weight: 400;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-family: 'steradian';
+}
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+body {
+  margin: 0;
+}
+*::-webkit-scrollbar {
+  width: 8px !important;
+}
+* {
+  user-select: none;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: $neutral-darkest-transparent1;
+  border: 2px solid $white;
+}
+
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.user-modal-box,
+.shortcuts-modal-box,
+.news-modal-box,
+.about-modal-box,
+.confirmation-modal-box {
+  mat-dialog-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 0;
+  }
+}
+.cdk-overlay-backdrop.cdk-overlay-backdrop-showing.modal-backdrop {
+  background-color: rgb(0, 0, 0, 0.5);
+  z-index: $modal-backdrop-z-index;
+}
+
+.cdk-overlay-container .mat-tooltip {
+  /* your own custom styles here */
+  /* e.g. */
+  white-space: pre-line;
+  background-color: $neutral-darkest-transparent7;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 12px;
+  line-height: 16px;
+  color: $white;
+}

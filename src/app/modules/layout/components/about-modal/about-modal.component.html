@@ -1,0 +1,31 @@
+<div class="wrapper">
+  <header class="modal-header">
+    <section>
+      <div class="heading">{{ 'userMenu.aboutModal.title' | translate }}</div>
+      <div class="subheading">
+        {{ 'userMenu.aboutModal.subtitleFirstHalf' | translate }}
+        {{ this.copyrightDate }}
+        {{ 'userMenu.aboutModal.subtitleSecondHalf' | translate }}
+      </div>
+    </section>
+    <button type="button" class="close-button" [mat-dialog-close]="true">
+      <img src="assets/images/svg/close.svg" alt="close icon" />
+    </button>
+  </header>
+
+  <main class="modal-content">
+    <div class="software-details">
+      <div class="key">{{ 'userMenu.aboutModal.softwareDetails.versionKey' | translate }}</div>
+      <div class="value">{{ 'userMenu.aboutModal.softwareDetails.versionValue' | translate }}</div>
+    </div>
+    <div class="software-details">
+      <div class="key">{{ 'userMenu.aboutModal.softwareDetails.manufacturerKey' | translate }}</div>
+      <div class="value">{{ 'userMenu.aboutModal.softwareDetails.manufacturerValue' | translate }}</div>
+    </div>
+  </main>
+
+  <footer class="modal-footer">
+    <a href="#">{{ 'userMenu.aboutModal.links.terms' | translate }}</a>
+    <a href="#">{{ 'userMenu.aboutModal.links.privacy' | translate }}</a>
+  </footer>
+</div>

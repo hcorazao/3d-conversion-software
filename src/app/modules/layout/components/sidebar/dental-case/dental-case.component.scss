@@ -1,0 +1,44 @@
+@import 'variables';
+
+.wrapper {
+  min-height: 56px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+  &.disabled {
+    .name {
+      color: $neutral-darkest-transparent7;
+    }
+  }
+
+  &:hover:not(.disabled) {
+    background-color: $secondary-transparent1;
+    border-radius: 14px;
+    cursor: pointer;
+    .name {
+      color: $secondary;
+    }
+  }
+}
+.information {
+  display: flex;
+  flex-direction: column;
+  padding: 7px 15px 7px 4px;
+}
+.additional-information {
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 500;
+  color: $neutral-darkest-transparent5;
+}
+.name {
+  font-size: 14px;
+  margin-bottom: 2px;
+  color: $neutral-darkest;
+}
+.separator {
+  margin: 0 4px;
+}

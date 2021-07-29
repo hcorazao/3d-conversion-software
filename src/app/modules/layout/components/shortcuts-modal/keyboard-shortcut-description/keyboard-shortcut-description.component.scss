@@ -1,0 +1,35 @@
+@import 'variables';
+
+.shortcut {
+  $fontSize: 14px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 16px;
+  font-size: $fontSize;
+  line-height: $fontSize;
+  font-weight: 400;
+  color: $neutral-darkest;
+
+  .key {
+    $size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $size;
+    height: $size;
+    margin-right: 4px;
+    background-color: $neutral-darkest-transparent1;
+    border-radius: 3px;
+
+    &.wide {
+      width: auto;
+      padding: 0 8px;
+    }
+  }
+
+  .description {
+    display: flex;
+    align-items: center;
+    margin-left: 14px;
+  }
+}

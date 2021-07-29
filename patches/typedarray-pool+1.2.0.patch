@@ -1,0 +1,12 @@
+diff --git a/node_modules/typedarray-pool/pool.js b/node_modules/typedarray-pool/pool.js
+index 8d3a202..e4d698c 100644
+--- a/node_modules/typedarray-pool/pool.js
++++ b/node_modules/typedarray-pool/pool.js
+@@ -5,6 +5,7 @@ var dup = require('dup')
+ var Buffer = require('buffer').Buffer
+ 
+ //Legacy pool support
++var global = global || self;
+ if(!global.__TYPEDARRAY_POOL) {
+   global.__TYPEDARRAY_POOL = {
+       UINT8     : dup([32, 0])

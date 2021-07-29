@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <header class="modal-header">
+    {{ 'userMenu.newModal.title' | translate }}
+    <button type="button" class="close-button" [mat-dialog-close]="true">
+      <img src="assets/images/svg/close.svg" alt="close icon" />
+    </button>
+  </header>
+
+  <div class="news">
+    <article class="news-item" *ngFor="let newsItem of newsList">
+      <div class="news-date">{{ newsItem.date | date: 'd MMMM y' }}</div>
+      <header class="news-header">{{ newsItem.title }}</header>
+      <div class="news-text">{{ newsItem.text }}</div>
+      <a href="{{ newsItem.url }}" class="news-link">{{ 'userMenu.newModal.link' | translate }}</a>
+    </article>
+  </div>
+</div>

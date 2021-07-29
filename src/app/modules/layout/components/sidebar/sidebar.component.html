@@ -1,0 +1,69 @@
+<div class="wrapper">
+  <div class="header">
+    <div class="title-wrapper">
+      <img src="assets/images/svg/patient.svg" />
+      {{ 'sidebar.title' | translate }}
+    </div>
+  </div>
+  <div class="search-wrapper" [class]="{ active: !!searchText }">
+    <input
+      class="search"
+      [(ngModel)]="searchText"
+      [placeholder]="'sidebar.search.placeholder' | translate"
+      (click)="initializeSearch()"
+      (ngModelChange)="searchPatients()"
+    />
+    <div *ngIf="searchText" class="close-button" (click)="searchText = ''">
+      <img src="assets/images/svg/close-small.svg" />
+    </div>
+  </div>
+  <div class="all-cases-wrapper">
+    <div *ngIf="!searchText" class="cases-section">
+      <app-sidebar-section
+        [expanded]="recentCasesExpanded"
+        [loading]="isImportingCasesFromImportFolder$ | async"
+        [sectionTranslationsPrefix]="'sidebar.recentPatientsSection'"
+        [patientsWithCases]="recentPatientsWithCases$ | async"
+        (toggle)="toggleRecentCases()"
+        (dentalCaseSelected)="handleDentalCaseSelected($event)"
+      ></app-sidebar-section>
+    </div>
+    <div *ngIf="!searchText" class="cases-section">
+      <app-sidebar-section
+        [expanded]="allCasesExpanded"
+        [loading]="isImportingCasesFromImportFolder$ | async"
+        [sectionTranslationsPrefix]="'sidebar.allPatientsSection'"
+        [patientsWithCases]="allPatientsWithCases$ | async"
+        (toggle)="toggleAllCases()"
+        (dentalCaseSelected)="handleDentalCaseSelected($event)"
+      ></app-sidebar-section>
+    </div>
+    <div *ngIf="searchText" class="searched-patients">
+      <div *ngIf="isImportingCasesFromImportFolder$ | async; else elseBlock" class="searched-patients-header">
+        {{ 'sidebar.search.loading' | translate }}
+      </div>
+      <ng-template #elseBlock>
+        <div class="searched-patients-header">
+          {{ searchedPatients.length }}
+          {{
+            (searchedPatients.length === 0
+              ? 'sidebar.search.patientsFoundSuffix.zero'
+              : searchedPatients.length === 1
+              ? 'sidebar.search.patientsFoundSuffix.one'
+              : 'sidebar.search.patientsFoundSuffix.multiple'
+            ) | translate
+          }}
+        </div>
+      </ng-template>
+
+      <div *ngFor="let patientWithCases of searchedPatients">
+        <app-patient-sidebar-section
+          [patient]="patientWithCases.patient"
+          [cases]="patientWithCases.dentalCaseSimples"
+          (dentalCaseSelected)="handleDentalCaseSelected($event)"
+        >
+        </app-patient-sidebar-section>
+      </div>
+    </div>
+  </div>
+</div>

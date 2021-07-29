@@ -1,0 +1,28 @@
+<div class="wrapper">
+  <div class="title">{{ getTitleTranslationKey() | translate }}</div>
+  <div class="fresh-cases-wrapper">
+    <ng-container *ngFor="let freshDentalCase of freshDentalCases; let i = index">
+      <div [@fadeInOut]="!minimized || i === 0 ? 'expanded' : 'collapsed'" class="fresh-case-wrapper">
+        <div class="fresh-case">
+          <img class="case-thumbnail" [src]="freshDentalCase.thumbnailSrc" />
+          <div class="informations">
+            <div class="case-name">{{ freshDentalCase.caseName }}</div>
+            <div class="second-line-informations">
+              <span class="addition-ellapsed-time"
+                >{{ 'shared.time.added' | translate }} {{ getNumberFromFormattedElapsedTime(freshDentalCase.caseDate) }}
+                {{ getTextSuffixTranslationKeyFromFormattedElapsedTime(freshDentalCase.caseDate) | translate }}</span
+              >
+              <span class="separator">•</span>
+              <span class="completion-status">{{
+                getTranslationKeyForCaseCompletionStatus(freshDentalCase.completionStatus) | translate
+              }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <button class="expand-button" (click)="toggleMinimization()">
+    {{ (minimized ? 'notification.freshCases.showMore' : 'notification.freshCases.showLess') | translate }}
+  </button>
+</div>

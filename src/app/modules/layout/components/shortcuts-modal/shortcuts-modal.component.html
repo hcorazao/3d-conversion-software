@@ -1,0 +1,49 @@
+<div class="wrapper">
+  <header class="modal-header">
+    {{ 'userMenu.shortcutsModal.title' | translate }}
+    <button type="button" class="close-button" [mat-dialog-close]="true">
+      <img src="assets/images/svg/close.svg" alt="close icon" />
+    </button>
+  </header>
+
+  <div class="content">
+    <section class="shortcuts-set">
+      <header class="shortcuts-set-header">{{ 'userMenu.shortcutsModal.essentialShortcuts' | translate }}</header>
+      <app-keyboard-shortcut-description
+        shortcutKey="Z"
+        [description]="'userMenu.shortcutsModal.undo' | translate"
+      ></app-keyboard-shortcut-description>
+      <app-keyboard-shortcut-description
+        shortcutKey="Y"
+        [description]="'userMenu.shortcutsModal.redo' | translate"
+      ></app-keyboard-shortcut-description>
+      <app-keyboard-shortcut-description
+        shortcutKey="R"
+        [description]="'userMenu.shortcutsModal.resetScene' | translate"
+      ></app-keyboard-shortcut-description>
+      <app-keyboard-shortcut-description
+        shortcutKey="P"
+        [description]="'userMenu.shortcutsModal.hidePanels' | translate"
+      ></app-keyboard-shortcut-description>
+      <app-keyboard-shortcut-description
+        shortcutKey="D"
+        [description]="'userMenu.shortcutsModal.showPatientDetails' | translate"
+      ></app-keyboard-shortcut-description>
+    </section>
+    <section class="shortcuts-set">
+      <header class="shortcuts-set-header">{{ 'userMenu.shortcutsModal.proUserShortcuts' | translate }}</header>
+      <app-keyboard-shortcut-description
+        shortcutKey="E"
+        [description]="'userMenu.shortcutsModal.export' | translate"
+      ></app-keyboard-shortcut-description>
+      <app-keyboard-shortcut-description
+        shortcutKey="<"
+        [description]="'userMenu.shortcutsModal.backStep' | translate"
+      ></app-keyboard-shortcut-description>
+      <app-keyboard-shortcut-description
+        shortcutKey=">"
+        [description]="'userMenu.shortcutsModal.forwardStep' | translate"
+      ></app-keyboard-shortcut-description>
+    </section>
+  </div>
+</div>

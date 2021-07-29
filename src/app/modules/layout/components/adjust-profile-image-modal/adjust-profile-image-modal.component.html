@@ -1,0 +1,31 @@
+<div class="wrapper">
+  <div #profileImageWrapper class="image-cropper-wrapper">
+    <image-cropper
+      [imageFile]="profileImageFile"
+      [roundCropper]="true"
+      [cropper]="cropperPosition"
+      [hideResizeSquares]="true"
+      format="png"
+      (cropperReady)="cropperReady()"
+      (imageCropped)="imageCropped($event)"
+    ></image-cropper>
+  </div>
+  <div class="controls">
+    <div class="slider">
+      <mat-slider
+        [min]="0"
+        [max]="maxCropperDiameter"
+        [step]="4"
+        [value]="cropDiameter"
+        [color]="'accent'"
+        (change)="valueChanged($event)"
+        (input)="valueDragged($event)"
+      ></mat-slider>
+    </div>
+    <app-button
+      [type]="ButtonType.secondary"
+      [title]="'userMenu.profileDetails.profileImage.modal.saveButton.title' | translate"
+      (clicked)="saveProfileImage()"
+    ></app-button>
+  </div>
+</div>

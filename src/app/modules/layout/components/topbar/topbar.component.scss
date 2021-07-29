@@ -1,0 +1,153 @@
+@import 'variables';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-toggler-and-logo-wrapper {
+  display: flex;
+}
+.main-topbar-wrapper {
+  margin-left: 8px;
+  display: flex;
+  box-shadow: $panel-shadow;
+  min-width: 0;
+}
+
+.logo {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 16px;
+  background-color: $panel-background;
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  color: $neutral-darkest;
+  cursor: default;
+
+  &.flat-right-edge {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.case-breadcrumbs {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0;
+  background-color: $panel-background;
+  min-width: 0;
+
+  .breadcrumbs-patient {
+    color: $neutral-darkest-transparent5;
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 500;
+    position: relative;
+    cursor: pointer;
+    &:hover,
+    &.active {
+      color: $neutral-darkest;
+    }
+  }
+  .breadcrumbs-separator {
+    margin-left: 13px;
+    margin-right: 13px;
+  }
+  .breadcrumbs-dental-case {
+    color: $neutral-darkest;
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 500;
+  }
+  .breadcrumbs-dental-case-info-icon {
+    margin: 0 13px;
+    cursor: pointer;
+
+    &:hover .image-without-hover {
+      display: none;
+    }
+    .image-with-hover {
+      display: none;
+    }
+    &:hover .image-with-hover {
+      display: inline;
+    }
+  }
+  .case-saved-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background-color: $success;
+    cursor: pointer;
+  }
+  .case-info {
+    position: relative;
+  }
+}
+.export-button-and-panel {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.menu {
+  z-index: $userbar-z-index;
+  margin-top: 8px;
+  position: absolute;
+  top: 56px;
+  left: -76px;
+  display: flex;
+  flex-direction: column;
+  width: 208px;
+  border-radius: 5px;
+  overflow-y: hidden;
+  background-color: $panel-background;
+  box-shadow: $panel-shadow;
+  padding: 8px;
+  .menu-info {
+    font-size: 11px;
+    color: $neutral-darkest;
+  }
+  .menu-option {
+    background-color: $panel-background;
+    margin-top: 2px;
+    padding: 11px 16px;
+    font-size: 14px;
+    line-height: 18px;
+    color: $neutral-darkest;
+    span {
+      margin-left: 16px;
+    }
+    img.menu-option-image {
+      display: inline;
+    }
+    img.menu-option-image-hover {
+      display: none;
+    }
+    &:hover {
+      cursor: pointer;
+      background-color: $primary-transparent1;
+      img.menu-option-image {
+        display: none;
+      }
+      img.menu-option-image-hover {
+        display: inline;
+      }
+    }
+  }
+}
+
+.flex-text-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}

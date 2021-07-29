@@ -1,0 +1,74 @@
+@import 'variables';
+
+.wrapper {
+  width: 368px;
+  background-color: $neutral-darkest-transparent7;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 16px 12px;
+  align-items: center;
+  pointer-events: all;
+}
+
+.title {
+  margin-bottom: 16px;
+  padding: 0 8px;
+  color: $white;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+}
+
+.fresh-cases-wrapper {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: -8px;
+}
+.fresh-case {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: $white-transparent1;
+  display: flex;
+  align-items: center;
+  .case-thumbnail {
+    margin-right: 12px;
+  }
+  .informations {
+    display: flex;
+    flex-direction: column;
+    .case-name {
+      margin-bottom: 2px;
+      color: $white;
+      font-size: 14px;
+      line-height: 17px;
+      font-weight: 400;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .second-line-informations {
+      color: $white-transparent5;
+      font-size: 12px;
+      line-height: 15px;
+      font-weight: 400;
+      .separator {
+        margin: 0 8px;
+      }
+    }
+  }
+}
+
+.expand-button {
+  margin-top: 12px;
+  background: none;
+  border: none;
+  outline: none;
+  color: $white-transparent5;
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 500;
+}

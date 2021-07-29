@@ -1,0 +1,21 @@
+@import 'variables';
+
+.wrapper {
+  background-color: $neutral-darkest-transparent7;
+  border-radius: 5px;
+  display: flex;
+  padding: 16px 16px 16px 20px;
+  align-items: center;
+  pointer-events: all;
+}
+
+.message {
+  color: $white;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.close-button-wrapper {
+  margin: 0 0 0 22px;
+}

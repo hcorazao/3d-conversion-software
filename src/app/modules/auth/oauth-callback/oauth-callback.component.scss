@@ -1,0 +1,10 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.authenticating-message {
+  font-size: 16px;
+  margin-top: 4px;
+}

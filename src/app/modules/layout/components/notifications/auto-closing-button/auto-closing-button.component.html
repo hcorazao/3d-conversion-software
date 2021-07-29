@@ -1,0 +1,9 @@
+<button class="close-button" [class]="{ light: light }" (click)="close()">
+  <mat-icon>close</mat-icon>
+  <div *ngIf="autoClosing" class="loading-circle-container" [class]="{ 'animation-5s': autoClosingTime === 5 }">
+    <div class="halfclip">
+      <div class="halfcircle clipped"></div>
+    </div>
+    <div class="halfcircle fixed"></div>
+  </div>
+</button>

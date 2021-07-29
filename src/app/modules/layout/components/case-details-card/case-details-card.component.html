@@ -1,0 +1,20 @@
+<div class="wrapper">
+  <header>{{ 'caseDetailsCard.title' | translate }}</header>
+  <section>
+    <app-case-detail-line [label]="'caseDetailsCard.details.patient' | translate" [value]="dentalCaseFolder?.patient?.name">
+    </app-case-detail-line>
+    <app-case-detail-line [label]="'caseDetailsCard.details.patientId' | translate" [value]="dentalCaseFolder?.patient?.id">
+    </app-case-detail-line>
+    <app-case-detail-line [label]="'caseDetailsCard.details.practice' | translate" [value]="dentalCaseFolder?.practice?.name">
+    </app-case-detail-line>
+    <app-case-detail-line [label]="'caseDetailsCard.details.practiceId' | translate" [value]="dentalCaseFolder?.practice?.id">
+    </app-case-detail-line>
+    <app-case-detail-line [label]="'caseDetailsCard.details.indication' | translate" [value]="dentalCaseFolder?.dentalCase?.indication">
+    </app-case-detail-line>
+    <app-case-detail-line [label]="'caseDetailsCard.details.toothNumber' | translate" [value]="toothNumber"> </app-case-detail-line>
+    <app-case-detail-line [label]="'caseDetailsCard.details.material' | translate" [value]="dentalCaseFolder?.dentalCase?.material">
+    </app-case-detail-line>
+    <app-case-detail-line [label]="'caseDetailsCard.details.shade' | translate" [value]="dentalCaseFolder?.dentalCase?.shade">
+    </app-case-detail-line>
+  </section>
+</div>

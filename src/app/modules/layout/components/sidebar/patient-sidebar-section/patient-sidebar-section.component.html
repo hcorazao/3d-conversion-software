@@ -1,0 +1,37 @@
+<div class="header" (click)="onToggleExpander()">
+  <div class="patient-name-and-controls">
+    <div class="patient-name">{{ patient?.name }}</div>
+    <div class="case-controls">
+      <button>
+        <img *ngIf="!expanded" src="assets/images/svg/buttons/expand.svg" />
+        <img *ngIf="expanded" src="assets/images/svg/buttons/collapse.svg" />
+      </button>
+    </div>
+  </div>
+  <div class="patient-info">
+    <span *ngIf="patient?.id">ID</span>
+    <div *ngIf="patient?.id" class="id-copier-container" [class]="{ darker: patientIdCopierHover }">
+      <span>{{ patient?.id }}</span>
+      <button
+        class="id-copier-button"
+        (click)="copyPatientId($event)"
+        (mouseenter)="patientIdCopierHover = true"
+        (mouseleave)="patientIdCopierHover = false"
+      >
+        <img [src]="patientIdCopierHover ? 'assets/images/svg/buttons/copy-text-hover.svg' : 'assets/images/svg/buttons/copy-text.svg'" />
+      </button>
+    </div>
+    <span
+      >{{ cases?.length || 0
+      }}<span class="ml-1" [ngPlural]="cases?.length || 0"
+        ><ng-template ngPluralCase="=1">{{ 'sidebar.dentalCase.case' | translate }}</ng-template
+        ><ng-template ngPluralCase="other">{{ 'sidebar.dentalCase.cases' | translate }}</ng-template></span
+      >
+    </span>
+  </div>
+</div>
+<div [@fadeInOut]="expanded ? 'expanded' : 'collapsed'" class="dental-cases">
+  <ng-container *ngFor="let dentalCase of cases">
+    <app-dental-case [dentalCase]="dentalCase" (dentalCaseSelected)="dentalCaseSelected.emit($event)"></app-dental-case>
+  </ng-container>
+</div>

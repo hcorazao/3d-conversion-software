@@ -1,0 +1,27 @@
+<div class="wrapper">
+  <div class="header">
+    <div class="title">{{ translationsPrefix + '.title' | translate }}</div>
+    <button type="button" class="close-button" [mat-dialog-close]="false">
+      <mat-icon aria-hidden="false" aria-label="close">close</mat-icon>
+    </button>
+  </div>
+  <div class="content">
+    {{ translationsPrefix + '.body' | translate }}
+    <div class="buttons">
+      <app-button
+        [type]="ButtonType.neutral"
+        [title]="translationsPrefix + '.cancelationButton.title' | translate"
+        (clicked)="dialogRef.close(false)"
+      >
+      </app-button>
+
+      <app-button
+        [type]="ButtonType.secondary"
+        [title]="translationsPrefix + '.confirmationButton.title' | translate"
+        (clicked)="dialogRef.close(true)"
+        cdkFocusInitial
+      >
+      </app-button>
+    </div>
+  </div>
+</div>

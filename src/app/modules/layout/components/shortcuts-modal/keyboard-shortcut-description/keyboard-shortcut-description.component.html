@@ -1,0 +1,6 @@
+<div class="shortcut">
+  <div *ngIf="!isHardwareApple" class="key wide">Ctrl</div>
+  <div *ngIf="isHardwareApple" class="key">⌘</div>
+  <div class="key">{{ shortcutKey }}</div>
+  <div class="description">{{ description }}</div>
+</div>

@@ -1,0 +1,109 @@
+@import 'variables';
+
+button {
+  $size: 48px;
+  z-index: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: $size;
+  height: $size;
+  padding: 8px;
+  border: none;
+  outline: none;
+  background: none;
+  z-index: $navigation-buttons-z-index;
+
+  &.auto-width {
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 20px;
+    line-height: 25px;
+    color: $neutral-darkest;
+    width: auto;
+  }
+  &.dark {
+    color: $white;
+  }
+  &.space-between {
+    img {
+      margin-right: 8px;
+    }
+  }
+
+  &.avatar {
+    $size: 32px;
+    padding: 0;
+    width: auto;
+    height: 100%;
+
+    img,
+    .gravatar {
+      box-sizing: content-box;
+      width: $size;
+      height: $size;
+      border-radius: 50%;
+    }
+
+    .gravatar {
+      background-color: $primary;
+      color: $white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11.2px;
+      line-height: 18px;
+      letter-spacing: 0.1em;
+      text-align: center;
+      font-weight: 700;
+    }
+  }
+}
+
+button {
+  &:not(.avatar)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: $white;
+    box-shadow: $panel-shadow;
+    transition: all $button-hover-transition;
+  }
+  &.flat-right-edge::before {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  &.flat-left-edge::before {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  &.no-shadow::before {
+    box-shadow: none;
+  }
+  &.dark::before {
+    background-color: $neutral-darkest-transparent7;
+  }
+  &.resize-on-hover:not(.avatar):hover::before {
+    transform: scaleY(calc(36 / 32));
+    width: calc(100% + 4px);
+    left: -2px;
+  }
+}
+
+button {
+  position: relative;
+  .image-with-hover {
+    position: absolute;
+    transition: opacity 0.2s ease-in-out;
+    opacity: 0;
+  }
+  &:hover .image-with-hover {
+    opacity: 1;
+  }
+}

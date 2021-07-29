@@ -1,0 +1,10 @@
+<span class="greetings">
+  <ng-container [ngSwitch]="daySlot">
+    <ng-container *ngSwitchCase="DaySlotType.MORNING">{{ 'userMenu.greetings.morning' | translate }}</ng-container>
+    <ng-container *ngSwitchCase="DaySlotType.AFTERNOON">{{ 'userMenu.greetings.afternoon' | translate }}</ng-container>
+    <ng-container *ngSwitchCase="DaySlotType.EVENING">{{ 'userMenu.greetings.evening' | translate }}</ng-container>
+    <ng-container *ngSwitchDefault>{{ 'userMenu.greetings.welcome' | translate }}</ng-container>
+  </ng-container>
+  <ng-container *ngIf="firstName">, {{ firstName }}</ng-container
+  >!</span
+>

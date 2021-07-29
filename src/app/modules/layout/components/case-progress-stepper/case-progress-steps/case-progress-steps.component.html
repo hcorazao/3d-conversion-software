@@ -1,0 +1,24 @@
+<ng-container *ngFor="let mainStep of steps">
+  <div class="step-wrapper" [@expandCollapse]="!minimized || currentMainStep === mainStep.mainStepOrderNumber ? 'expanded' : 'collapsed'">
+    <app-case-progress-step
+      [mainStep]="mainStep.mainStepOrderNumber"
+      [currentMainStep]="currentMainStep"
+      [currentSubstep]="currentSubstep"
+      [title]="[mainStep.titleTranslationKey | translate]"
+      [lastStep]="minimized || mainStep.mainStepOrderNumber === steps.length"
+      [tipsEnabled]="tipsEnabled"
+      [substeps]="mainStep.substeps"
+      [undoEnabled]="undoEnabled"
+      [redoEnabled]="redoEnabled"
+      [jumpAvailable]="
+        jumpsAvailabilities &&
+        jumpsAvailabilities[mainStep.mainStepOrderNumber] &&
+        jumpsTransitions &&
+        jumpsTransitions[mainStep.mainStepOrderNumber]
+      "
+      (stepHeaderClicked)="onStepHeaderClicked(mainStep)"
+      (undo)="undo.emit()"
+      (redo)="redo.emit()"
+    ></app-case-progress-step>
+  </div>
+</ng-container>

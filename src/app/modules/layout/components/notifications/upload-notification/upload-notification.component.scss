@@ -1,0 +1,89 @@
+@import 'variables';
+
+.wrapper {
+  background-color: $neutral-darkest-transparent7;
+  border-radius: 5px;
+  width: 264px;
+  .header {
+    border-bottom: 1px solid $white-transparent1;
+    padding: 13px 11px 11px 16px;
+    color: $white;
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &.minimized {
+      border: none;
+    }
+    .header-buttons {
+      display: flex;
+      button {
+        height: 24px;
+        background: none;
+        border: none;
+        outline: none;
+        font-size: 11px;
+        color: $white-transparent5;
+        padding: 4px;
+        mat-icon {
+          width: 16px;
+          height: 16px;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  .body {
+    width: 100%;
+    overflow: hidden;
+    .body-content-wrapper {
+      width: 100%;
+      padding: 8px 16px;
+      overflow: hidden;
+      .upload-item {
+        display: flex;
+        justify-content: flex-start;
+        margin: 8px 0;
+        width: 100%;
+        .upload-item-image {
+          margin-right: 8px;
+        }
+        .descriptions {
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+          .title {
+            color: $white;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 15px;
+          }
+          .file-name {
+            width: 150px;
+            color: $white-transparent5;
+            font-weight: 500;
+            font-size: 10px;
+            line-height: 13px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+        }
+        .status-image-wrapper {
+          .success {
+            background-color: $success;
+            border-radius: 50%;
+            padding: 1px 0 0 1px;
+          }
+          .error {
+            background-color: $danger;
+            border-radius: 50%;
+            padding: 0.5px 1px 0.5px 0;
+          }
+        }
+      }
+    }
+  }
+}

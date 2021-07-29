@@ -1,0 +1,112 @@
+{
+  "caseFolderDropzoneInfobox": {
+    "instructions": {
+      "section1": {
+        "line1": "[IT] Drag and drop your Case Folder to get started"
+      },
+      "section2": {
+        "line1": "[IT] Case Folder must include the following:",
+        "line2": "[IT] Pre-op scan, Post-op scan,",
+        "line3": "[IT] Antagonist scan (optional), XML file"
+      },
+      "section3": {
+        "line1": "[IT] Supported file types:",
+        "line2": "[IT] stl, obj, ply, xml"
+      }
+    },
+    "button": {
+      "label": "[IT] Choose folder"
+    },
+    "errors": {
+      "noCameraVendorMatch": "[IT] Uploaded folder doesn't match to any camera vendor"
+    }
+  },
+  "userMenu": {
+    "switchAccount": "[IT] Switch account",
+    "signOut": "[IT] Sign out",
+    "profileDetails": {
+      "title": "[IT] Profile details"
+    },
+    "designParameters": {
+      "title": "[IT] Parameters"
+    },
+    "profilePreferences": {
+      "title": "[IT] Preferences",
+      "importFolder": {
+        "title": "[IT] Import folder location",
+        "subtitle": "[IT] This is where our software will look for new cases for import",
+        "noFolderChosen": "[IT] no folder chosen",
+        "changeButtonTitle": "[IT] Change?"
+      },
+      "exportFolder": {
+        "title": "[IT] Export folder location",
+        "subtitle": "[IT] This is where your completed cases will be exported",
+        "noFolderChosen": "[IT] no folder chosen",
+        "changeButtonTitle": "[IT] Change?"
+      },
+      "language": {
+        "title": "[IT] Language",
+        "en-US": "English",
+        "de-DE": "Deutsch",
+        "es-ES": "Español",
+        "it-IT": "Italiano"
+      }
+    }
+  },
+  "caseProgressStepper": {
+    "header": {
+      "title": "[IT] CROWN ASSISTANT",
+      "collapseButton": {
+        "title": "[IT] COLLAPSE"
+      },
+      "stepLabel": "[IT] STEP",
+      "tipsLabel": "[IT] TIPS"
+    },
+    "buttons": {
+      "chooseFolderButton": {
+        "title": "[IT] Choose folder"
+      },
+      "backButton": {
+        "title": "[IT] Back"
+      },
+      "nextButton": {
+        "title": "[IT] Next"
+      },
+      "exportButton": {
+        "title": "[IT] Export"
+      }
+    },
+    "steps": {
+      "importStep": {
+        "title": "[IT] IMPORT"
+      },
+      "preparationMarginStep": {
+        "title": "[IT] PREPARATION MARGIN"
+      },
+      "insertionAxisStep": {
+        "title": "[IT] INSERTION AXIS"
+      },
+      "copyLineStep": {
+        "title": "[IT] COPY LINE"
+      },
+      "contactAndThicknessStep": {
+        "title": "[IT] CONTACT & THICKNESS"
+      },
+      "exportStep": {
+        "title": "[IT] EXPORT"
+      }
+    }
+  },
+  "objectsToolbox": {
+    "title": "[IT] OBJECTS",
+    "preOperativeJawSlider": {
+      "title": "[IT] Pre-op jaw"
+    },
+    "postOperativeJawSlider": {
+      "title": "[IT] Post-op jaw"
+    },
+    "antagonistJawSlider": {
+      "title": "[IT] Antagonist jaw"
+    }
+  }
+}

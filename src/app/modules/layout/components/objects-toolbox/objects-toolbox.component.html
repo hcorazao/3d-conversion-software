@@ -1,0 +1,10 @@
+<div class="opacity-header">{{ 'objectsToolbox.subtitle' | translate }}</div>
+<ng-container *ngFor="let setting of definedCaseObjectsSettingsControls">
+  <div *ngIf="caseObjectsSettings && caseObjectsSettings[setting.objectName]?.available">
+    <app-toolbox-slider
+      [title]="setting.titleTranslationKey | translate"
+      [value]="caseObjectsSettings[setting.objectName]?.opacity"
+      (changedValue)="updateSettingsWithPatch(setting.objectName, { opacity: $event })"
+    ></app-toolbox-slider>
+  </div>
+</ng-container>

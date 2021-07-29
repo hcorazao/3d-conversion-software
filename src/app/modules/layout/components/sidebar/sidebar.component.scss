@@ -1,0 +1,116 @@
+@import 'variables';
+
+$width: 344px;
+
+.wrapper {
+  width: $width;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: $panel-background;
+}
+
+.header {
+  height: 71px;
+  min-height: 71px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  border-bottom: 1px solid $neutral-darkest-transparent1;
+  .title-wrapper {
+    display: flex;
+    align-items: center;
+    img {
+      margin-right: 12px;
+    }
+    color: $neutral-darkest;
+    font-size: 20px;
+    line-height: 25px;
+    font-weight: 500;
+  }
+  .new-case-button {
+    display: flex;
+    align-items: center;
+    height: 32px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 5px;
+    background-color: $secondary;
+    color: $white;
+    font-size: 12px;
+    line-height: 15px;
+    border: none;
+    outline: none;
+    mat-icon {
+      margin-right: 6px;
+    }
+    &:hover {
+      height: 36px;
+      padding-left: 14px;
+      padding-right: 14px;
+    }
+  }
+}
+
+.search-wrapper {
+  margin: 16px 16px 8px;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: calc(100% - 32px);
+  background-color: $neutral-darkest-transparent05-alternative;
+  border-radius: 5px;
+  .search {
+    flex-grow: 1;
+    height: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: $neutral-darkest-transparent05-alternative;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    color: $neutral-darkest-transparent3;
+    font-size: 12px;
+    line-height: 15px;
+    &::placeholder {
+      color: $neutral-darkest-transparent3;
+    }
+  }
+  &.active,
+  &:active,
+  &:focus-within {
+    border: 1px solid $secondary;
+    .search {
+      color: $neutral-darkest;
+    }
+  }
+  .close-button {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.all-cases-wrapper {
+  width: $width;
+  overflow-y: visible;
+  overflow-x: hidden;
+}
+.cases-section {
+  width: $width;
+  margin: 0;
+  padding: 0 8px;
+}
+.searched-patients {
+  padding: 0 8px;
+  .searched-patients-header {
+    padding: 0 8px;
+    font-weight: 500;
+    font-size: 11px;
+    color: $neutral-darkest-transparent5;
+  }
+}

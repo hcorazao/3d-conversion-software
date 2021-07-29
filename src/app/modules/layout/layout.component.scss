@@ -1,0 +1,103 @@
+@import 'variables';
+
+.sidebar-wrapper {
+  position: absolute;
+  left: -344px;
+  top: 0px;
+  width: 344px;
+  height: 100vh;
+  transition: 0.3s;
+  z-index: $sidebar-z-index;
+  &.visible {
+    left: 0;
+  }
+}
+
+.main {
+  margin-left: 0;
+  position: relative;
+  transition: 0.3s;
+  &.sidebar-visible {
+    margin-left: 344px;
+  }
+}
+
+.userbar-wrapper {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: $userbar-z-index;
+}
+
+.topbar-wrapper {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: $userbar-z-index;
+  width: 100%;
+  padding-right: 140px;
+}
+
+.case-folder-dropzone-infobox-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  &.dragging-folder {
+    z-index: $drag-and-drop-infobox-z-index;
+  }
+}
+
+.toolbox-wrapper {
+  z-index: $case-progress-stepper-z-index;
+  position: absolute;
+  &.focused {
+    z-index: 310 !important;
+  }
+}
+
+.dropzone-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: $dropzone-z-index;
+  &.hidden {
+    visibility: hidden;
+  }
+}
+.bottom-center-notifications-wrapper {
+  z-index: $notifications-z-index;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  pointer-events: none;
+  app-fresh-cases-notification,
+  app-toast-notification:not(:last-child) {
+    margin-top: 8px;
+  }
+}
+.bottom-left-notifications-wrapper {
+  z-index: $notifications-z-index;
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  :not(:first-child) {
+    margin-top: 8px;
+  }
+  .action-notifications-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    :not(:last-child) {
+      margin-top: 8px;
+    }
+  }
+}

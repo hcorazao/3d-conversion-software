@@ -1,0 +1,42 @@
+$golden-orange: #f7c56b;
+$golden-orange-transparent1: rgba(247, 197, 107, 0.1);
+$golden-orange-light: #fbe2b9;
+$cornflower-blue: #6b9df7;
+$red: #ff2b2b;
+$green: #42a05c;
+
+$primary: $golden-orange;
+$primary-transparent1: $golden-orange-transparent1;
+$primary-light: $golden-orange-light;
+$secondary: $cornflower-blue;
+$secondary-transparent1: rgba(107, 157, 247, 0.1);
+$danger: $red;
+$success: $green;
+
+$transparent: rgba(0, 0, 0, 0);
+$white: #ffffff;
+$white-transparent1: rgba(255, 255, 255, 0.1);
+$white-transparent2: rgba(255, 255, 255, 0.2);
+$white-transparent5: rgba(255, 255, 255, 0.5);
+$neutral-lightest: #f5f5f5;
+$neutral-lighter: #f2f2f2;
+$neutral-medium: #c4c4c4;
+$neutral-medium-tranpsarent5: rgba(196, 196, 196, 0.5);
+$neutral-darkest: #333333;
+$neutral-darkest-transparent05: rgba(51, 51, 51, 0.05);
+$neutral-darkest-transparent05-alternative: #f3f3f3;
+$neutral-darkest-transparent1: rgba(51, 51, 51, 0.1);
+$neutral-darkest-transparent2: rgba(51, 51, 51, 0.2);
+$neutral-darkest-transparent3: rgba(51, 51, 51, 0.3);
+$neutral-darkest-transparent5: rgba(51, 51, 51, 0.5);
+$neutral-darkest-transparent7: rgba(51, 51, 51, 0.75);
+$black: #000000;
+$black-transparent05: rgba(0, 0, 0, 0.05);
+$black-transparent5: rgba(0, 0, 0, 0.5);
+
+$background: $neutral-lighter;
+$background-grid: $black-transparent05;
+$background-overlay: $black-transparent5;
+$panel-background: $white;
+
+$panel-shadow: 0px 4px 16px 8px rgba(51, 51, 51, 0.05);
